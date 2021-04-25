@@ -33,6 +33,9 @@ public class CupcakeDetails {
 	@Min(value = 0)
 	private int stock;
 	
+	@Column(name = "RATING")
+	private int rating;
+	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "categoryId")
 	private CupcakeCategory cupcakeCategory;
@@ -90,6 +93,22 @@ public class CupcakeDetails {
 	}
 	public void setStock(int stock) {
 		this.stock = stock;
+	}
+
+	public int getRating() {
+		return rating;
+	}
+
+	public void setRating(int rating) {
+		this.rating = rating;
+	}
+
+	public Order getOrder() {
+		return order;
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
 	}
 	
 	

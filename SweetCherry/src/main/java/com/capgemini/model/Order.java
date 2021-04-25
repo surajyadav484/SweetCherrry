@@ -41,7 +41,7 @@ public class Order {
 	@JoinTable(name = "cupcakeDetails_orders", joinColumns = { @JoinColumn(name = "order_id") }, inverseJoinColumns = { @JoinColumn(name = "cupcake_id") })
 	private CupcakeDetails cupcakeDetails;
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "status")
 	private Payment payment;
 	
@@ -59,6 +59,22 @@ public class Order {
 		this.orderStatus = orderStatus;
 		this.roleDetails = roleDetails;
 		this.payment = payment;
+	}
+
+	public double getTotalPrice() {
+		return totalPrice;
+	}
+
+	public void setTotalPrice(double totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+
+	public CupcakeDetails getCupcakeDetails() {
+		return cupcakeDetails;
+	}
+
+	public void setCupcakeDetails(CupcakeDetails cupcakeDetails) {
+		this.cupcakeDetails = cupcakeDetails;
 	}
 
 	public int getOrderId() {
