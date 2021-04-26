@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.capgemini.dao.SweetCherryDao;
 import com.capgemini.exceptions.HandleExceptions;
-import com.capgemini.model.Order;
+import com.capgemini.model.Orders;
 
 @Service
 public class SweetCherryServiceImpl implements SweetCherryService {

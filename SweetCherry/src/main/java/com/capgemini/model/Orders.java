@@ -16,7 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Order {
+public class Orders {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -48,12 +48,12 @@ public class Order {
 	private Payment payment;
 	
 	
-	public Order() {
+	public Orders() {
 		super();
 	}
 	
 	
-	public Order(int orderId, String orderDate, int quantity, String orderStatus, double totalPrice,
+	public Orders(int orderId, String orderDate, int quantity, String orderStatus, double totalPrice,
 			UserDetails roleDetails, Set<CupcakeDetails> cupcakeDetails, Payment payment) {
 		super();
 		this.orderId = orderId;

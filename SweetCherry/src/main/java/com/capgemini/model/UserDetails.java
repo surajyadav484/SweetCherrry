@@ -52,14 +52,14 @@ public class UserDetails {
 	private Role role;
 	
 	@OneToMany(mappedBy = "userDetails")
-	private Set<Order> order;
+	private Set<Orders> order;
 	
 	
-	public Set<Order> getOrder() {
+	public Set<Orders> getOrder() {
 		return order;
 	}
 
-	public void setOrder(Set<Order> order) {
+	public void setOrder(Set<Orders> order) {
 		this.order = order;
 	}
 

@@ -34,7 +34,7 @@ public class Payment {
 		 private String status;
 		 
 		 @OneToOne(mappedBy = "payment" )
-		 private Order order;
+		 private Orders order;
 		 
 		 
 		 @OneToMany
@@ -65,7 +65,7 @@ public class Payment {
 		
 
 		public Payment(int paymentId, long cardNo, int cvv, String cardHolderName, String expiryDate, String status,
-				Order order, Set<UserDetails> roleDetails) {
+				Orders order, Set<UserDetails> roleDetails) {
 			super();
 			this.paymentId = paymentId;
 			this.cardNo = cardNo;
@@ -85,11 +85,11 @@ public class Payment {
 			this.paymentId = paymentId;
 		}
 
-		public Order getOrder() {
+		public Orders getOrder() {
 			return order;
 		}
 
-		public void setOrder(Order order) {
+		public void setOrder(Orders order) {
 			this.order = order;
 		}
 

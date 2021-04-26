@@ -43,7 +43,7 @@ public class CupcakeDetails {
 	private CupcakeCategory cupcakeCategory;
 	
 	@ManyToMany(mappedBy = "cupcakeDetails" )
-	private Set<Order> order;
+	private Set<Orders> order;
 	
 	public CupcakeCategory getCupcakeCategory() {
 		return cupcakeCategory;
@@ -62,7 +62,7 @@ public class CupcakeDetails {
 	
 
 	public CupcakeDetails(int cupcakeId, String cupcakeName, String cupcakeDescription, @Min(0) double price,
-			@Min(0) int stock, int rating, CupcakeCategory cupcakeCategory, Set<Order> order) {
+			@Min(0) int stock, int rating, CupcakeCategory cupcakeCategory, Set<Orders> order) {
 		super();
 		this.cupcakeId = cupcakeId;
 		this.cupcakeName = cupcakeName;
@@ -113,11 +113,11 @@ public class CupcakeDetails {
 		this.rating = rating;
 	}
 
-	public Set<Order> getOrder() {
+	public Set<Orders> getOrder() {
 		return order;
 	}
 
-	public void setOrder(Set<Order> order) {
+	public void setOrder(Set<Orders> order) {
 		this.order = order;
 	}
 
