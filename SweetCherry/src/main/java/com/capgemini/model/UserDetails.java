@@ -1,5 +1,7 @@
 package com.capgemini.model;
 
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,7 +17,7 @@ public class UserDetails {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "USER_ID", nullable = false)
+	@Column(name = "USER_IDENTITY", nullable = false)
 	private int userId;
 	
 	@Column(name = "FIRST_NAME", nullable = false)
@@ -49,8 +51,18 @@ public class UserDetails {
 	@JoinColumn(name = "roleId")
 	private Role role;
 	
-	@OneToMany(mappedBy = "RoleDetails")
-	private Order order;
+	@OneToMany(mappedBy = "userDetails")
+	private Set<Order> order;
+	
+	
+	public Set<Order> getOrder() {
+		return order;
+	}
+
+	public void setOrder(Set<Order> order) {
+		this.order = order;
+	}
+
 	public Role getRole() {
 		return role;
 	}

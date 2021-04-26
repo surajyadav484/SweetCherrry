@@ -1,5 +1,7 @@
 package com.capgemini.model;
 
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -41,7 +43,7 @@ public class CupcakeDetails {
 	private CupcakeCategory cupcakeCategory;
 	
 	@ManyToMany(mappedBy = "cupcakeDetails" )
-	private Order order;
+	private Set<Order> order;
 	
 	public CupcakeCategory getCupcakeCategory() {
 		return cupcakeCategory;
@@ -55,15 +57,23 @@ public class CupcakeDetails {
 		super();
 	}
 	
-	public CupcakeDetails(int cupcakeId, String cupcakeName, String cupcakeDescription, double price, int stock) {
+	
+	
+	
+
+	public CupcakeDetails(int cupcakeId, String cupcakeName, String cupcakeDescription, @Min(0) double price,
+			@Min(0) int stock, int rating, CupcakeCategory cupcakeCategory, Set<Order> order) {
 		super();
 		this.cupcakeId = cupcakeId;
 		this.cupcakeName = cupcakeName;
 		this.cupcakeDescription = cupcakeDescription;
 		this.price = price;
 		this.stock = stock;
+		this.rating = rating;
+		this.cupcakeCategory = cupcakeCategory;
+		this.order = order;
 	}
-	
+
 	public int getCupcakeId() {
 		return cupcakeId;
 	}
@@ -103,13 +113,14 @@ public class CupcakeDetails {
 		this.rating = rating;
 	}
 
-	public Order getOrder() {
+	public Set<Order> getOrder() {
 		return order;
 	}
 
-	public void setOrder(Order order) {
+	public void setOrder(Set<Order> order) {
 		this.order = order;
 	}
+
 	
 	
 }

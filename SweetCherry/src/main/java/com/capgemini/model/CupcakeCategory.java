@@ -1,5 +1,8 @@
 package com.capgemini.model;
 
+import java.util.List;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -15,27 +18,52 @@ public class CupcakeCategory {
 	@Column(name = "CATEGORY_NAME")
 	private String categoryName;
 	
-	@OneToMany(mappedBy = "CupcakeCategory")
-	private CupcakeDetails cupcakeDetails;
+	@OneToMany(mappedBy = "cupcakeCategory")
+	private Set<CupcakeDetails> cupcakeDetails;
 	
-	public CupcakeDetails getCupcakeDetails() {
+	
+
+	
+
+
+	public Set<CupcakeDetails> getCupcakeDetails() {
 		return cupcakeDetails;
 	}
 
-	public void setCupcakeDetails(CupcakeDetails cupcakeDetails) {
+
+
+
+
+	public void setCupcakeDetails(Set<CupcakeDetails> cupcakeDetails) {
 		this.cupcakeDetails = cupcakeDetails;
 	}
+
+
+
+
 
 	public CupcakeCategory() {
 		super();
 	}
 	
-	public CupcakeCategory(int categorId, String categoryName) {
-		super();
-		this.categoryId = categorId;
-		this.categoryName = categoryName;
-	}
 	
+	
+	
+
+	
+
+
+	public CupcakeCategory(int categoryId, String categoryName, Set<CupcakeDetails> cupcakeDetails) {
+		super();
+		this.categoryId = categoryId;
+		this.categoryName = categoryName;
+		this.cupcakeDetails = cupcakeDetails;
+	}
+
+
+
+
+
 	public int getCategoryId() {
 		return categoryId;
 	}

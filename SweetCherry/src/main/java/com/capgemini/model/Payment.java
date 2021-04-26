@@ -1,5 +1,8 @@
 package com.capgemini.model;
 
+import java.util.List;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -30,13 +33,13 @@ public class Payment {
 		 @Column(name = "STATUS", nullable = false)
 		 private String status;
 		 
-		 @OneToOne(mappedBy = "Payments" )
+		 @OneToOne(mappedBy = "payment" )
 		 private Order order;
 		 
 		 
 		 @OneToMany
 		 @JoinColumn(name="userId")
-		 private UserDetails roleDetails;
+		 private Set<UserDetails> userDetails;
 		 
 		 public String getStatus() {
 			return status;
@@ -47,12 +50,14 @@ public class Payment {
 		}
 
 
-		public UserDetails getRoleDetails() {
-			return roleDetails;
+		
+
+		public Set<UserDetails> getUserDetails() {
+			return userDetails;
 		}
 
-		public void setRoleDetails(UserDetails roleDetails) {
-			this.roleDetails = roleDetails;
+		public void setUserDetails(Set<UserDetails> userDetails) {
+			this.userDetails = userDetails;
 		}
 
 		public Payment() {
@@ -60,7 +65,7 @@ public class Payment {
 		
 
 		public Payment(int paymentId, long cardNo, int cvv, String cardHolderName, String expiryDate, String status,
-				Order order, UserDetails roleDetails) {
+				Order order, Set<UserDetails> roleDetails) {
 			super();
 			this.paymentId = paymentId;
 			this.cardNo = cardNo;
@@ -69,7 +74,7 @@ public class Payment {
 			this.expiryDate = expiryDate;
 			this.status = status;
 			this.order = order;
-			this.roleDetails = roleDetails;
+			this.userDetails = roleDetails;
 		}
 
 		public int getPaymentId() {

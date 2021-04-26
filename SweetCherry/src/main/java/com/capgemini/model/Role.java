@@ -1,5 +1,7 @@
 package com.capgemini.model;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -15,27 +17,30 @@ public class Role {
 	@Column(name = "ROLE_NAME")
 	private String roleName;
 	
-	@OneToMany(mappedBy = "role")
-	private UserDetails roledetails;
+	@OneToMany(mappedBy = "userId")
+	private Set<UserDetails> userdetails;
 	
-	public UserDetails getRoledetails() {
-		return roledetails;
+	
+
+	public Set<UserDetails> getUserdetails() {
+		return userdetails;
 	}
 
-	public void setRoledetails(UserDetails roledetails) {
-		this.roledetails = roledetails;
+	public void setUserdetails(Set<UserDetails> userdetails) {
+		this.userdetails = userdetails;
 	}
 
 	public Role() {
 		super();
 	}
 	
-	public Role(int roleId, String roleName) {
+
+	public Role(int roleId, String roleName, Set<UserDetails> userdetails) {
 		super();
 		this.roleId = roleId;
 		this.roleName = roleName;
+		this.userdetails = userdetails;
 	}
-	
 
 	public int getRoleId() {
 		return roleId;

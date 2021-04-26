@@ -1,5 +1,7 @@
 package com.capgemini.model;
 
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -35,11 +37,11 @@ public class Order {
 	
 	@ManyToOne
 	@JoinColumn(name = "userId")
-	private UserDetails roleDetails;
+	private UserDetails userDetails;
 
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "cupcakeDetails_orders", joinColumns = { @JoinColumn(name = "order_id") }, inverseJoinColumns = { @JoinColumn(name = "cupcake_id") })
-	private CupcakeDetails cupcakeDetails;
+	private Set<CupcakeDetails> cupcakeDetails;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "status")
@@ -50,16 +52,20 @@ public class Order {
 		super();
 	}
 	
-	public Order(int orderId, String orderDate, int quantity, String orderStatus, UserDetails roleDetails,
-			Payment payment) {
+	
+	public Order(int orderId, String orderDate, int quantity, String orderStatus, double totalPrice,
+			UserDetails roleDetails, Set<CupcakeDetails> cupcakeDetails, Payment payment) {
 		super();
 		this.orderId = orderId;
 		this.orderDate = orderDate;
 		this.quantity = quantity;
 		this.orderStatus = orderStatus;
-		this.roleDetails = roleDetails;
+		this.totalPrice = totalPrice;
+		this.userDetails = roleDetails;
+		this.cupcakeDetails = cupcakeDetails;
 		this.payment = payment;
 	}
+
 
 	public double getTotalPrice() {
 		return totalPrice;
@@ -69,13 +75,17 @@ public class Order {
 		this.totalPrice = totalPrice;
 	}
 
-	public CupcakeDetails getCupcakeDetails() {
+	
+
+	public Set<CupcakeDetails> getCupcakeDetails() {
 		return cupcakeDetails;
 	}
 
-	public void setCupcakeDetails(CupcakeDetails cupcakeDetails) {
+
+	public void setCupcakeDetails(Set<CupcakeDetails> cupcakeDetails) {
 		this.cupcakeDetails = cupcakeDetails;
 	}
+
 
 	public int getOrderId() {
 		return orderId;
@@ -105,11 +115,11 @@ public class Order {
 	}
 
 	public UserDetails getRoleDetails() {
-		return roleDetails;
+		return userDetails;
 	}
 
 	public void setRoleDetails(UserDetails roleDetails) {
-		this.roleDetails = roleDetails;
+		this.userDetails = roleDetails;
 	}
 
 	public Payment getPayment() {

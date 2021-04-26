@@ -7,7 +7,7 @@ import com.capgemini.model.Order;
 public interface SweetCherryDao {
 
 	
-	public List<Order> readAllOrders();
+	
 	
 	
 }
