@@ -3,8 +3,12 @@ package com.capgemini.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+@Component
+@Scope(scopeName = "prototype")
 @Entity
 public class CupcakeCategory {
 
@@ -15,27 +19,17 @@ public class CupcakeCategory {
 	@Column(name = "CATEGORY_NAME")
 	private String categoryName;
 	
-	@OneToMany(mappedBy = "CupcakeCategory")
-	private CupcakeDetails cupcakeDetails;
-	
-	public CupcakeDetails getCupcakeDetails() {
-		return cupcakeDetails;
-	}
-
-	public void setCupcakeDetails(CupcakeDetails cupcakeDetails) {
-		this.cupcakeDetails = cupcakeDetails;
-	}
-
 	public CupcakeCategory() {
 		super();
 	}
 	
-	public CupcakeCategory(int categorId, String categoryName) {
+	public CupcakeCategory(int categoryId, String categoryName) {
 		super();
-		this.categoryId = categorId;
+		this.categoryId = categoryId;
 		this.categoryName = categoryName;
+		
 	}
-	
+
 	public int getCategoryId() {
 		return categoryId;
 	}
