@@ -17,6 +17,7 @@ public class SweetCherryServiceImpl implements SweetCherryService {
 
 	@Autowired
 	SweetCherryDao dao;
+	
 	@Override
 	@Transactional
 	public Payment makeOnlinePayment(Payment payment) {
@@ -24,13 +25,13 @@ public class SweetCherryServiceImpl implements SweetCherryService {
 		
 	}
 
-	/*
-	 * @Override
-	 * 
-	 * @Transactional public Orders makeOnlineOrder(Orders order, int cupCakeId) {
-	 * 
-	 * return dao.placeOrder(order, cupCakeId); }
-	 */
+	
+	  @Override
+	  @Transactional 
+	  public Orders makeOnlineOrder(int orderId) { 
+		  return dao.placeOrder(orderId); 
+	}
+	 
 	@Override
 	@Transactional
 	public UserDetails addUserDetails(UserDetails userDetails) {

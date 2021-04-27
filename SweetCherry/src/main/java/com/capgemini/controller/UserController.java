@@ -30,14 +30,13 @@ public class UserController {
 		return service.makeOnlinePayment(payment);
 	}
 	
-	/*
-	 * // http://localhost:9090/sweetcherry-api/user/placeOrder
-	 * 
-	 * @PostMapping(path="/placeOrder/{cupCakeId}", consumes =
-	 * MediaType.APPLICATION_JSON_VALUE, produces = "application/json") public
-	 * Orders placeOnlineOrder(@RequestBody Orders order,@PathVariable("cupCakeId")
-	 * int cupCakeId) { return service.makeOnlineOrder(order,cupCakeId); }
-	 */
+	
+	  // http://localhost:9090/sweetcherry-api/user/placeOrder 
+	  @GetMapping(path="/placeOrder/{orderId}") 
+	  public Orders placeOnlineOrder(@PathVariable("orderId") int orderId) {
+		  return service.makeOnlineOrder(orderId);
+	  }
+	 
 	
 	
 	  // http://localhost:9090/sweetcherry-api/user/userDetails

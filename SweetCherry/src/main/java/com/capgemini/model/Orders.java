@@ -148,10 +148,12 @@ public class Orders {
 				+ cupcakeDetails + ", payment="  + "]";
 	}
 
-	public boolean addCupCakeDetails(CupcakeDetails cupcake) {
-		 return this.getCupcakeDetails().add(cupcake);
-		
-	}
+	/*
+	 * public boolean addCupCakeDetails(CupcakeDetails cupcake) { return
+	 * this.getCupcakeDetails().add(cupcake);
+	 * 
+	 * }
+	 */
 	
 	
 	

@@ -62,17 +62,18 @@ public class UserDetails {
 	  private Role role;
 	 
 	
-	  @Autowired
-	  @OneToMany(mappedBy = "userDetails") 
-	  private Set<Orders> order;
-	  
-	  
-	  public Set<Orders> getOrder() { return order; }
-	 
-
-	
-	  public void setOrder(Set<Orders> order) { this.order = order; }
-	  
+		/*
+		 * @Autowired
+		 * 
+		 * @OneToMany(mappedBy = "userDetails") private Set<Orders> order;
+		 * 
+		 * 
+		 * public Set<Orders> getOrder() { return order; }
+		 * 
+		 * 
+		 * 
+		 * public void setOrder(Set<Orders> order) { this.order = order; }
+		 */
 	  public Role getRole() { return role; }
 	 
 
@@ -180,8 +181,8 @@ public class UserDetails {
 	}
 	
 	
-	public void addOrders(Orders order) {
-		this.getOrder().add(order);
-	}
+	/*
+	 * public void addOrders(Orders order) { this.getOrder().add(order); }
+	 */
 
 }

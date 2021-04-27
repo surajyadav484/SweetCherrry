@@ -39,10 +39,11 @@ public class CupcakeDetails {
 	@Min(value = 0)
 	private double price;
 	
-	@Column(name = "STOCK")
-	@Min(value = 0)
-	private int stock;
-	
+	/*
+	 * @Column(name = "STOCK")
+	 * 
+	 * @Min(value = 0) private int stock;
+	 */
 	@Column(name = "RATING")
 	private int rating;
 	
@@ -71,13 +72,13 @@ public class CupcakeDetails {
 	
 
 	public CupcakeDetails(int cupcakeId, String cupcakeName, String cupcakeDescription, @Min(0) double price,
-			@Min(0) int stock, int rating, CupcakeCategory cupcakeCategory) {
+			 int rating, CupcakeCategory cupcakeCategory) {
 		super();
 		this.cupcakeId = cupcakeId;
 		this.cupcakeName = cupcakeName;
 		this.cupcakeDescription = cupcakeDescription;
 		this.price = price;
-		this.stock = stock;
+		
 		this.rating = rating;
 		this.cupcakeCategory = cupcakeCategory;
 		//this.order = order;
@@ -107,12 +108,7 @@ public class CupcakeDetails {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	public int getStock() {
-		return stock;
-	}
-	public void setStock(int stock) {
-		this.stock = stock;
-	}
+	
 
 	public int getRating() {
 		return rating;

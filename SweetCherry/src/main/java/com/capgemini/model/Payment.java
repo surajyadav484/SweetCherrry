@@ -35,7 +35,7 @@ public class Payment {
 	private String status;
 
 	@Autowired
-	@OneToOne(mappedBy = "payment")
+	@OneToOne
 	private Orders order;
 
 	/*

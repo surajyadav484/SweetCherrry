@@ -24,10 +24,14 @@ public class SweetCherryDaoImpl implements SweetCherryDao{
 		 return payment;
 	}
 
-	/*
-	 * @Override public Orders placeOrder(int ordereId) { Orders order =
-	 * em.find(Orders.class, ordereId); return null; }
-	 */
+	
+	  @Override
+	  public Orders placeOrder(int ordereId) { 
+		Orders order =  em.find(Orders.class, ordereId);
+		order.setOrderStatus("ordered");
+		return em.merge(order);
+		}
+	 
 	@Override
 	public UserDetails createUserDetails(UserDetails userDetail) {
 		em.persist(userDetail);

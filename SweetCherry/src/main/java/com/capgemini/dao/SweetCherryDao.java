@@ -10,7 +10,7 @@ import com.capgemini.model.UserDetails;
 public interface SweetCherryDao {
 
 	public Payment payOnline(Payment payment);
-	//public Orders placeOrder(int orderId);
+	public Orders placeOrder(int orderId);
 	public UserDetails createUserDetails(UserDetails userDetail);
 	//public CupcakeDetails createCupcakedetails(CupcakeDetails cupcakeDetails);
 	public Orders cancelOrder(int orderId);

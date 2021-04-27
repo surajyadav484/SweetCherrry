@@ -10,7 +10,7 @@ import com.capgemini.model.UserDetails;
 public interface SweetCherryService {
 
 	public Payment makeOnlinePayment(Payment payment);
-//	public Orders makeOnlineOrder(Orders order, int cupCakeId);
+	public Orders makeOnlineOrder(int orderId);
 	public UserDetails addUserDetails(UserDetails userDetails);
 	//public CupcakeDetails addCupcakeDetails(CupcakeDetails cupCakeDetails);
 	
