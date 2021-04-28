@@ -38,21 +38,6 @@ public class UserDetails {
 	@Column(name = "PASSWORD", nullable = false)
 	private String password;
 
-	@Column(name = "CITY")
-	private String city;
-
-	@Column(name = "STATE")
-	private String state;
-
-	@Column(name = "PINCODE", length = 6)
-	private String pincode;
-
-	@Column(name = "HOUSE_NO")
-	private int houseNo;
-
-	@Column(name = "LANDMARK")
-	private String landmark;
-
 	
 	  @Autowired
 	  
@@ -61,6 +46,10 @@ public class UserDetails {
 	  @JoinColumn(name = "roleId")
 	  private Role role;
 	 
+	  @Autowired
+	  @OneToMany(cascade = CascadeType.ALL)
+	  @JoinColumn(name="USER_ID")
+	  private Set<Address> address;
 	
 		/*
 		 * @Autowired
@@ -121,64 +110,25 @@ public class UserDetails {
 		this.password = password;
 	}
 
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public String getState() {
-		return state;
-	}
-
-	public void setState(String state) {
-		this.state = state;
-	}
-
-	public String getPincode() {
-		return pincode;
-	}
-
-	public void setPincode(String pincode) {
-		this.pincode = pincode;
-	}
-
-	public int getHouseNo() {
-		return houseNo;
-	}
-
-	public void setHouseNo(int houseNo) {
-		this.houseNo = houseNo;
-	}
-
-	public String getLandmark() {
-		return landmark;
-	}
-
-	public void setLandmark(String landmark) {
-		this.landmark = landmark;
-	}
-
+	
 	public UserDetails() {
 		super();
 	}
 
-	public UserDetails(int userId, String firstName, String lastName, String email, String password, String city,
-			String state, String pincode, int houseNo, String landmark) {
-		super();
-		this.userId = userId;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.password = password;
-		this.city = city;
-		this.state = state;
-		this.pincode = pincode;
-		this.houseNo = houseNo;
-		this.landmark = landmark;
+
+
+	public Set<Address> getAddress() {
+		return address;
 	}
+
+
+
+	public void setAddress(Set<Address> address) {
+		this.address = address;
+	}
+
+	
+	
 	
 	
 	/*

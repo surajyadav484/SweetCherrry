@@ -1,6 +1,11 @@
 package com.capgemini.model;
 
+import javax.annotation.Generated;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -10,11 +15,23 @@ import org.springframework.stereotype.Component;
 @Entity
 public class Address {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int adressId;
+	
+	@Column(name="CITY")
 	private String city;
+	
+	@Column(name = "STATE")
 	private String state;
+	
+	@Column(name = "PIN_CODE")
 	private String pinCode;
+	
+	@Column(name="HOUSE_NO")
 	private String houseNo;
+	
+	@Column(name="LANDMARK")
 	private String landmark;
 
 	public Address() {
