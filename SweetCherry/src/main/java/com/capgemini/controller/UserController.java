@@ -62,14 +62,14 @@ public class UserController {
 	  
 	  // http://localhost:9090/sweetcherry-api/user/updateDeliveryAddress
 	  @PutMapping(path="/updateDeliveryAddress",consumes = "application/json",produces = "application/json")
-	  public Address modifyAddress(@RequestBody Address address) {
-		  return service.modifyDeliveryAddress(address);
+	  public UserDetails modifyAddress(@RequestBody UserDetails userDetails) {
+		  return service.modifyDeliveryAddress(userDetails);
 	  }
 	 
 	  //http://localhost:9090/sweetcherry-api/user/addDeliveryAddress
 	  @PostMapping(path="/addDeliveryAddress",consumes = "application/json",produces = "application/json" )
-	  public Address addDeliveryAddress(@RequestBody Address address) {
-		  return service.addDeliveryAddress(address);
+	  public UserDetails addDeliveryAddress(@RequestBody UserDetails userDetails) {
+		  return service.addDeliveryAddress(userDetails);
 	  }
 	  
 	  // http://localhost:9090/sweetcherry-api/user/deleteDeliveryAddress/3

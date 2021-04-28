@@ -61,8 +61,8 @@ public class SweetCherryDaoImpl implements SweetCherryDao{
 		return orderQuery.getResultList();
 	}
 	@Override
-	public Address updateDeliveryAddress(Address address) {
-		return em.merge(address);
+	public UserDetails updateDeliveryAddress(UserDetails userDetails) {
+		return em.merge(userDetails);
 		
 	}
 	@Override
@@ -77,9 +77,9 @@ public class SweetCherryDaoImpl implements SweetCherryDao{
 
 
 	@Override
-	public Address createDeliveryAddress(Address address) {
-		em.persist(address);
-		return address;
+	public UserDetails createDeliveryAddress(UserDetails userDetails) {
+		em.persist(userDetails);
+		return userDetails;
 	}
 
 	

@@ -15,7 +15,7 @@ public interface SweetCherryDao {
 	//public CupcakeDetails createCupcakedetails(CupcakeDetails cupcakeDetails);
 	public Orders cancelOrder(int orderId);
 	public  List<Orders> readOrderDetailsByUserId(int userId);
-	public Address createDeliveryAddress(Address address);
-	public Address updateDeliveryAddress(Address address);
+	public UserDetails createDeliveryAddress(UserDetails userDetails);
+	public UserDetails updateDeliveryAddress(UserDetails userDetails);
 	public boolean removeDeliveryAddress(int addressId);
 }

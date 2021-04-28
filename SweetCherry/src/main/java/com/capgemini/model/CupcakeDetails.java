@@ -117,4 +117,8 @@ public class CupcakeDetails {
 	public void setRating(int rating) {
 		this.rating = rating;
 	}
+	
+	public void addOrders(Orders order) {
+		
+	}
 }

@@ -1,14 +1,12 @@
 package com.capgemini.model;
 
+import javax.annotation.Generated;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -36,23 +34,11 @@ public class Address {
 	@Column(name="LANDMARK")
 	private String landmark;
 
-	
-	  @Autowired
-	  
-	  @ManyToOne
-	  
-	  @JoinColumn(name="userId") private UserDetails userDetail;
-	 
 	public Address() {
 		
 	}
 
-	
-
-	
-	
-	public Address(int adressId, String city, String state, String pinCode, String houseNo, String landmark,
-			UserDetails userDetail) {
+	public Address(int adressId, String city, String state, String pinCode, String houseNo, String landmark) {
 		super();
 		this.adressId = adressId;
 		this.city = city;
@@ -60,24 +46,7 @@ public class Address {
 		this.pinCode = pinCode;
 		this.houseNo = houseNo;
 		this.landmark = landmark;
-		this.userDetail = userDetail;
 	}
-
-
-
-
-
-	public UserDetails getUserDetail() {
-		return userDetail;
-	}
-
-	public void setUserDetail(UserDetails userDetail) {
-		this.userDetail = userDetail;
-	}
-
-
-
-
 
 	public int getAdressId() {
 		return adressId;

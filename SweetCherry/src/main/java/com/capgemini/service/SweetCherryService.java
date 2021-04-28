@@ -18,7 +18,7 @@ public interface SweetCherryService {
 	public Orders cancelOnlineOrder(int orderId);
 	
 	public List<Orders> showOrderDetailsByUserId(int userId);
-	public Address addDeliveryAddress(Address address);
-	public Address modifyDeliveryAddress(Address address);
+	public UserDetails addDeliveryAddress(UserDetails userDetails);
+	public UserDetails modifyDeliveryAddress(UserDetails userDetails);
 	public boolean deleteDeliveryAddress(int addressId);
 }

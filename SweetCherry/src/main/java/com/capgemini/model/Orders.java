@@ -54,13 +54,13 @@ public class Orders {
 			@JoinColumn(name = "cupcake_id") })
 	private Set<CupcakeDetails> cupcakeDetails=null;
 
-	/*
-	 * @Autowired
-	 * 
-	 * @OneToOne(cascade = CascadeType.ALL)
-	 * 
-	 * @JoinColumn(name = "status") private Payment payment;
-	 */
+	
+	  @Autowired
+	  
+	  @OneToOne(cascade = CascadeType.ALL)
+	  
+	  @JoinColumn(name = "status") private Payment payment;
+	 
 
 	public Orders() {
 		super();

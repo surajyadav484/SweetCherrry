@@ -60,15 +60,15 @@ public class SweetCherryServiceImpl implements SweetCherryService {
 	}
 	@Override
 	@Transactional
-	public Address modifyDeliveryAddress(Address address) {
+	public UserDetails modifyDeliveryAddress(UserDetails address) {
 		return dao.updateDeliveryAddress(address);
 	}
 
 
 	@Override
 	@Transactional
-	public Address addDeliveryAddress(Address address) {
-		return dao.createDeliveryAddress(address);
+	public UserDetails addDeliveryAddress(UserDetails userDetails) {
+		return dao.createDeliveryAddress(userDetails);
 	}
 
 
