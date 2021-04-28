@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.capgemini.dao.SweetCherryDao;
+import com.capgemini.model.Address;
 import com.capgemini.model.CupcakeDetails;
 import com.capgemini.model.Orders;
 import com.capgemini.model.Payment;
@@ -50,17 +51,31 @@ public class SweetCherryServiceImpl implements SweetCherryService {
 	
 	
 	@Override
-	public Orders cancelonlineOrder(int orderId) {
+	public Orders cancelOnlineOrder(int orderId) {
 		return dao.cancelOrder(orderId);
 	}
 	@Override
-	public List<Orders> getAllOrders() {
-		return dao.readAllOrders();
+	public List<Orders> showOrderDetailsByUserId(int userId) {
+		return dao.readOrderDetailsByUserId(userId);
 	}
 	@Override
 	@Transactional
-	public UserDetails modifyUserAddress(UserDetails userDetail) {
-		return dao.updateAddress(userDetail);
+	public Address modifyDeliveryAddress(Address address) {
+		return dao.updateDeliveryAddress(address);
+	}
+
+
+	@Override
+	@Transactional
+	public Address addDeliveryAddress(Address address) {
+		return dao.createDeliveryAddress(address);
+	}
+
+
+	@Override
+	@Transactional
+	public boolean deleteDeliveryAddress(int addressId) {
+		return dao.removeDeliveryAddress(addressId);
 	}	
 
 }

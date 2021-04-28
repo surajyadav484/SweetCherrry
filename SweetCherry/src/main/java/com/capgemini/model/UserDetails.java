@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -45,13 +46,31 @@ public class UserDetails {
 	  
 	  @JoinColumn(name = "roleId")
 	  private Role role;
-	 
-	  @Autowired
-	  @OneToMany(cascade = CascadeType.ALL)
-	  @JoinColumn(name="USER_ID")
-	  private Set<Address> address;
 	
 		/*
+		 * @Autowired
+		 * 
+		 * @OneToMany
+		 * 
+		 * @Column(name="address_id") private Set<Address> address;
+		 */
+	  
+
+
+	public UserDetails(int userId, String firstName, String lastName, String email, String password, Role role) {
+		super();
+		this.userId = userId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.password = password;
+		this.role = role;
+		
+	}
+
+
+
+	/*
 		 * @Autowired
 		 * 
 		 * @OneToMany(mappedBy = "userDetails") private Set<Orders> order;
@@ -115,20 +134,6 @@ public class UserDetails {
 		super();
 	}
 
-
-
-	public Set<Address> getAddress() {
-		return address;
-	}
-
-
-
-	public void setAddress(Set<Address> address) {
-		this.address = address;
-	}
-
-	
-	
 	
 	
 	/*

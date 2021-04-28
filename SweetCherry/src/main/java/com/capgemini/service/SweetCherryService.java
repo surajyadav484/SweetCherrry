@@ -2,6 +2,7 @@ package com.capgemini.service;
 
 import java.util.List;
 
+import com.capgemini.model.Address;
 import com.capgemini.model.CupcakeDetails;
 import com.capgemini.model.Orders;
 import com.capgemini.model.Payment;
@@ -14,8 +15,10 @@ public interface SweetCherryService {
 	public UserDetails addUserDetails(UserDetails userDetails);
 	//public CupcakeDetails addCupcakeDetails(CupcakeDetails cupCakeDetails);
 	
-	public Orders cancelonlineOrder(int orderId);
+	public Orders cancelOnlineOrder(int orderId);
 	
-	public List<Orders> getAllOrders();
-	public UserDetails modifyUserAddress(UserDetails userDetail);
+	public List<Orders> showOrderDetailsByUserId(int userId);
+	public Address addDeliveryAddress(Address address);
+	public Address modifyDeliveryAddress(Address address);
+	public boolean deleteDeliveryAddress(int addressId);
 }

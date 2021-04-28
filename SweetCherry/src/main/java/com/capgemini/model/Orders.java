@@ -23,7 +23,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Scope(scopeName = "prototype")
 @Entity
-@NamedQueries({ @NamedQuery(name = "showOrderDetailByUserId", query = "SELECT o FROM Orders o WHERE o.userId=:userId") })
+@NamedQueries({ @NamedQuery(name = "showOrderDetailByUserId", query = "SELECT o FROM Orders o WHERE o.userDetails.userId=:userId") })
 public class Orders {
 
 	@Id

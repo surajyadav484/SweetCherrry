@@ -8,6 +8,7 @@ import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 
+import com.capgemini.model.Address;
 import com.capgemini.model.CupcakeDetails;
 import com.capgemini.model.Orders;
 import com.capgemini.model.Payment;
@@ -53,21 +54,32 @@ public class SweetCherryDaoImpl implements SweetCherryDao{
 		return order;
 	}
 	@Override
-	public List<Orders> readAllOrders() {
+	public List<Orders> readOrderDetailsByUserId(int userId) {
 		
-		String jpql = "FROM Orders";
-		TypedQuery<Orders> orderQuery = em.createQuery(jpql,Orders.class);
-		
+		TypedQuery<Orders> orderQuery = em.createNamedQuery("showOrderDetailByUserId",Orders.class);
+		orderQuery.setParameter("userId",userId);
 		return orderQuery.getResultList();
 	}
 	@Override
-	public UserDetails updateAddress(UserDetails userDetail) {
-		return em.merge(userDetail);
+	public Address updateDeliveryAddress(Address address) {
+		return em.merge(address);
 		
 	}
 	@Override
-	public UserDetails deleteDeliveryAddress(UserDetails userDetail) {
-		return null;
+	public boolean removeDeliveryAddress(int addressId) {
+		boolean result = false;
+		Address address = em.find(Address.class, addressId);
+		if(address != null)
+			 em.remove(address);
+			 result = true;
+		return result;
+	}
+
+
+	@Override
+	public Address createDeliveryAddress(Address address) {
+		em.persist(address);
+		return address;
 	}
 
 	
