@@ -1,0 +1,57 @@
+2021-04-29 08:08:41,163 [INFO] com.capgemini.SweetCherry [restartedMain] Starting SweetCherry on DESKTOP-4HICCON with PID 1360 (D:\9th-5th june\module 1\Sprint1\Workspace\SweetCherry(Sprint_01)\bin\main started by DELL in D:\9th-5th june\module 1\Sprint1\Workspace\SweetCherry(Sprint_01))
+2021-04-29 08:08:41,163 [DEBUG] com.capgemini.SweetCherry [restartedMain] Running with Spring Boot v2.2.12.RELEASE, Spring v5.2.12.RELEASE
+2021-04-29 08:08:41,163 [INFO] com.capgemini.SweetCherry [restartedMain] No active profile set, falling back to default profiles: default
+2021-04-29 08:08:41,398 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-29 08:08:41,406 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 6ms. Found 0 JPA repository interfaces.
+2021-04-29 08:08:41,503 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9090 (http)
+2021-04-29 08:08:41,504 [INFO] org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2021-04-29 08:08:41,504 [INFO] org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-04-29 08:08:41,538 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/sweetcherry-api] [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-04-29 08:08:41,538 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 373 ms
+2021-04-29 08:08:41,571 [INFO] org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-29 08:08:41,576 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-3 - Starting...
+2021-04-29 08:08:41,598 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-3 - Start completed.
+2021-04-29 08:08:41,598 [INFO] org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2021-04-29 08:08:41,781 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-29 08:08:41,786 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-29 08:08:41,800 [INFO] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-04-29 08:08:41,890 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-29 08:08:41,968 [INFO] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-29 08:08:42,228 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 9090 (http) with context path '/sweetcherry-api'
+2021-04-29 08:08:42,229 [INFO] com.capgemini.SweetCherry [restartedMain] Started SweetCherry in 1.088 seconds (JVM running for 688.16)
+2021-04-29 08:08:42,231 [INFO] org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2021-04-29 08:09:01,050 [INFO] org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin [RMI TCP Connection(15)-127.0.0.1] Application shutdown requested.
+2021-04-29 08:09:01,051 [INFO] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [RMI TCP Connection(15)-127.0.0.1] Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-29 08:09:01,052 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [RMI TCP Connection(15)-127.0.0.1] Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-04-29 08:09:01,053 [INFO] com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(15)-127.0.0.1] HikariPool-3 - Shutdown initiated...
+2021-04-29 08:09:01,056 [INFO] com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(15)-127.0.0.1] HikariPool-3 - Shutdown completed.
+2021-04-29 08:09:05,460 [INFO] com.capgemini.SweetCherry [restartedMain] Starting SweetCherry on DESKTOP-4HICCON with PID 14256 (D:\9th-5th june\module 1\Sprint1\Workspace\SweetCherry(Sprint_01)\bin\main started by DELL in D:\9th-5th june\module 1\Sprint1\Workspace\SweetCherry(Sprint_01))
+2021-04-29 08:09:05,463 [DEBUG] com.capgemini.SweetCherry [restartedMain] Running with Spring Boot v2.2.12.RELEASE, Spring v5.2.12.RELEASE
+2021-04-29 08:09:05,464 [INFO] com.capgemini.SweetCherry [restartedMain] No active profile set, falling back to default profiles: default
+2021-04-29 08:09:05,509 [INFO] org.springframework.boot.devtools.restart.ChangeableUrls [restartedMain] The Class-Path manifest attribute in C:\Users\DELL\.gradle\caches\modules-2\files-2.1\org.glassfish.jaxb\jaxb-runtime\2.3.1\dd6dda9da676a54c5b36ca2806ff95ee017d8738\jaxb-runtime-2.3.1.jar referenced one or more files that do not exist: file:/C:/Users/DELL/.gradle/caches/modules-2/files-2.1/org.glassfish.jaxb/jaxb-runtime/2.3.1/dd6dda9da676a54c5b36ca2806ff95ee017d8738/jaxb-api-2.3.1.jar,file:/C:/Users/DELL/.gradle/caches/modules-2/files-2.1/org.glassfish.jaxb/jaxb-runtime/2.3.1/dd6dda9da676a54c5b36ca2806ff95ee017d8738/txw2-2.3.1.jar,file:/C:/Users/DELL/.gradle/caches/modules-2/files-2.1/org.glassfish.jaxb/jaxb-runtime/2.3.1/dd6dda9da676a54c5b36ca2806ff95ee017d8738/istack-commons-runtime-3.0.7.jar,file:/C:/Users/DELL/.gradle/caches/modules-2/files-2.1/org.glassfish.jaxb/jaxb-runtime/2.3.1/dd6dda9da676a54c5b36ca2806ff95ee017d8738/stax-ex-1.8.jar,file:/C:/Users/DELL/.gradle/caches/modules-2/files-2.1/org.glassfish.jaxb/jaxb-runtime/2.3.1/dd6dda9da676a54c5b36ca2806ff95ee017d8738/FastInfoset-1.2.15.jar,file:/C:/Users/DELL/.gradle/caches/modules-2/files-2.1/org.glassfish.jaxb/jaxb-runtime/2.3.1/dd6dda9da676a54c5b36ca2806ff95ee017d8738/javax.activation-api-1.2.0.jar
+2021-04-29 08:09:05,509 [INFO] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-04-29 08:09:05,509 [INFO] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-04-29 08:09:06,263 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-04-29 08:09:06,279 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 10ms. Found 0 JPA repository interfaces.
+2021-04-29 08:09:06,781 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9090 (http)
+2021-04-29 08:09:06,788 [INFO] org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2021-04-29 08:09:06,788 [INFO] org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-04-29 08:09:06,896 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/sweetcherry-api] [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-04-29 08:09:06,897 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1387 ms
+2021-04-29 08:09:07,030 [INFO] org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-04-29 08:09:07,064 [INFO] org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.25.Final
+2021-04-29 08:09:07,166 [INFO] org.hibernate.annotations.common.Version [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-04-29 08:09:07,259 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2021-04-29 08:09:07,346 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2021-04-29 08:09:07,371 [INFO] org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2021-04-29 08:09:08,141 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-04-29 08:09:08,220 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-04-29 08:09:08,249 [INFO] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-04-29 08:09:08,455 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-04-29 08:09:08,700 [INFO] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-29 08:09:09,229 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 9090 (http) with context path '/sweetcherry-api'
+2021-04-29 08:09:09,232 [INFO] com.capgemini.SweetCherry [restartedMain] Started SweetCherry in 4.072 seconds (JVM running for 4.975)
+2021-04-29 08:11:22,928 [INFO] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [Thread-5] Shutting down ExecutorService 'applicationTaskExecutor'
+2021-04-29 08:11:22,931 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [Thread-5] Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-04-29 08:11:22,934 [INFO] com.zaxxer.hikari.HikariDataSource [Thread-5] HikariPool-1 - Shutdown initiated...
+2021-04-29 08:11:22,940 [INFO] com.zaxxer.hikari.HikariDataSource [Thread-5] HikariPool-1 - Shutdown completed.
