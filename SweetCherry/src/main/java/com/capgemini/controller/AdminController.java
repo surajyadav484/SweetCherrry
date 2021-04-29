@@ -27,8 +27,8 @@ public class AdminController {
 
 	// http://localhost:9090/sweetcherry-api/admin/cupcakedetails
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = "application/json", path = "addcupcakedetails")
-	public CupcakeDetails AddCupcakeDetails(@RequestBody CupcakeDetails cupcakedetails) {
-		return service.AddCupcakeDetails(cupcakedetails);
+	public CupcakeDetails AddCupcakeDetails(@RequestBody CupcakeDetails cupcakedetails) throws NoSuchCupcakeExists {
+		return service.addCupcakeDetails(cupcakedetails);
 
 	}
 
@@ -40,20 +40,20 @@ public class AdminController {
 
 	// http://localhost:9090/sweetcherry-api/admin/getAllCupcake
 	@GetMapping(path = "/getAllCupcake", produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<CupcakeDetails> getAllCupcakeDetails() {
+	public List<CupcakeDetails> getAllCupcakeDetails() throws NoSuchCupcakeExists {
 		return service.findAllCupcake();
 
 	}
 
 	@PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = "application/json", path = "modifyCupcakePrice")
 
-	public CupcakeDetails modifyCupcakePrice(@RequestBody CupcakeDetails cupcakedetails) {
+	public CupcakeDetails modifyCupcakePrice(@RequestBody CupcakeDetails cupcakedetails) throws NoSuchCupcakeExists {
 		return service.modifyCupcakePrice(cupcakedetails);
 	}
 
 	@PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = "application/json", path = "modifyCupcakeName")
 
-	public CupcakeDetails modifyCupcakeName(@RequestBody CupcakeDetails cupcakedetails) {
+	public CupcakeDetails modifyCupcakeName(@RequestBody CupcakeDetails cupcakedetails) throws NoSuchCupcakeExists {
 		return service.modifyCupcakePrice(cupcakedetails);
 	}
 

@@ -21,7 +21,7 @@ public class UserController {
     }
 	
 	@GetMapping(produces= MediaType.APPLICATION_JSON_VALUE)
-	public List<CupcakeDetails> getAllCupcakeDetails(){
+	public List<CupcakeDetails> getAllCupcakeDetails() throws NoSuchCupcakeExists{
 		return service.findAllCupcake();
 	
 }
