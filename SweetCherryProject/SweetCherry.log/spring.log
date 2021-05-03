@@ -1,0 +1,351 @@
+2021-05-03 16:45:44,276 [INFO] com.capgemini.SweetCherry [restartedMain] Starting SweetCherry on LIN25003910 with PID 15896 (C:\Users\surajyad\Sprint_01\Workspace\SweetCherryProject\lib\bin\main started by surajyad in C:\Users\surajyad\Sprint_01\Workspace\SweetCherryProject\lib)
+2021-05-03 16:45:44,280 [DEBUG] com.capgemini.SweetCherry [restartedMain] Running with Spring Boot v2.2.12.RELEASE, Spring v5.2.12.RELEASE
+2021-05-03 16:45:44,281 [INFO] com.capgemini.SweetCherry [restartedMain] No active profile set, falling back to default profiles: default
+2021-05-03 16:45:44,406 [INFO] org.springframework.boot.devtools.restart.ChangeableUrls [restartedMain] The Class-Path manifest attribute in C:\Users\surajyad\.gradle\caches\modules-2\files-2.1\org.glassfish.jaxb\jaxb-runtime\2.3.1\dd6dda9da676a54c5b36ca2806ff95ee017d8738\jaxb-runtime-2.3.1.jar referenced one or more files that do not exist: file:/C:/Users/surajyad/.gradle/caches/modules-2/files-2.1/org.glassfish.jaxb/jaxb-runtime/2.3.1/dd6dda9da676a54c5b36ca2806ff95ee017d8738/jaxb-api-2.3.1.jar,file:/C:/Users/surajyad/.gradle/caches/modules-2/files-2.1/org.glassfish.jaxb/jaxb-runtime/2.3.1/dd6dda9da676a54c5b36ca2806ff95ee017d8738/txw2-2.3.1.jar,file:/C:/Users/surajyad/.gradle/caches/modules-2/files-2.1/org.glassfish.jaxb/jaxb-runtime/2.3.1/dd6dda9da676a54c5b36ca2806ff95ee017d8738/istack-commons-runtime-3.0.7.jar,file:/C:/Users/surajyad/.gradle/caches/modules-2/files-2.1/org.glassfish.jaxb/jaxb-runtime/2.3.1/dd6dda9da676a54c5b36ca2806ff95ee017d8738/stax-ex-1.8.jar,file:/C:/Users/surajyad/.gradle/caches/modules-2/files-2.1/org.glassfish.jaxb/jaxb-runtime/2.3.1/dd6dda9da676a54c5b36ca2806ff95ee017d8738/FastInfoset-1.2.15.jar,file:/C:/Users/surajyad/.gradle/caches/modules-2/files-2.1/org.glassfish.jaxb/jaxb-runtime/2.3.1/dd6dda9da676a54c5b36ca2806ff95ee017d8738/javax.activation-api-1.2.0.jar
+2021-05-03 16:45:44,407 [INFO] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-05-03 16:45:44,408 [INFO] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-05-03 16:45:46,753 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-05-03 16:45:46,967 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 189ms. Found 6 JPA repository interfaces.
+2021-05-03 16:45:48,343 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9090 (http)
+2021-05-03 16:45:48,368 [INFO] org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2021-05-03 16:45:48,369 [INFO] org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-05-03 16:45:48,614 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/sweetcherry-api] [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-05-03 16:45:48,616 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 4208 ms
+2021-05-03 16:45:48,989 [INFO] org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-05-03 16:45:49,130 [INFO] org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.25.Final
+2021-05-03 16:45:49,475 [INFO] org.hibernate.annotations.common.Version [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-05-03 16:45:49,724 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2021-05-03 16:45:49,985 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2021-05-03 16:45:50,037 [INFO] org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-05-03 16:45:51,736 [WARN] org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl [restartedMain] GenerationTarget encountered exception accepting command : Error executing DDL "alter table if exists payment add column status varchar(255) not null" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table if exists payment add column status varchar(255) not null" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:559)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:580)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.migrateTable(AbstractSchemaMigrator.java:297)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:75)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:207)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:114)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:184)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:316)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:469)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1259)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:378)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1790)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:594)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1109)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:869)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:405)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.capgemini.SweetCherry.main(SweetCherry.java:15)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.postgresql.util.PSQLException: ERROR: column "status" contains null values
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2553)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2285)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:323)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:481)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:401)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:322)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:308)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:284)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:279)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 39 common frames omitted
+2021-05-03 16:45:51,865 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-05-03 16:45:51,871 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-05-03 16:45:51,897 [INFO] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-05-03 16:45:53,492 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-05-03 16:45:54,043 [INFO] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-03 16:45:55,533 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 9090 (http) with context path '/sweetcherry-api'
+2021-05-03 16:45:55,536 [INFO] com.capgemini.SweetCherry [restartedMain] Started SweetCherry in 11.77 seconds (JVM running for 12.686)
+2021-05-03 16:46:12,251 [INFO] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [Thread-5] Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-03 16:46:12,257 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [Thread-5] Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-05-03 16:46:12,261 [INFO] com.zaxxer.hikari.HikariDataSource [Thread-5] HikariPool-1 - Shutdown initiated...
+2021-05-03 16:46:12,269 [INFO] com.zaxxer.hikari.HikariDataSource [Thread-5] HikariPool-1 - Shutdown completed.
+2021-05-03 16:46:12,544 [INFO] com.capgemini.SweetCherry [restartedMain] Starting SweetCherry on LIN25003910 with PID 15896 (C:\Users\surajyad\Sprint_01\Workspace\SweetCherryProject\lib\bin\main started by surajyad in C:\Users\surajyad\Sprint_01\Workspace\SweetCherryProject\lib)
+2021-05-03 16:46:12,545 [DEBUG] com.capgemini.SweetCherry [restartedMain] Running with Spring Boot v2.2.12.RELEASE, Spring v5.2.12.RELEASE
+2021-05-03 16:46:12,546 [INFO] com.capgemini.SweetCherry [restartedMain] No active profile set, falling back to default profiles: default
+2021-05-03 16:46:13,693 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-05-03 16:46:13,769 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 66ms. Found 6 JPA repository interfaces.
+2021-05-03 16:46:14,102 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9090 (http)
+2021-05-03 16:46:14,104 [INFO] org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2021-05-03 16:46:14,104 [INFO] org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-05-03 16:46:14,200 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/sweetcherry-api] [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-05-03 16:46:14,200 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1650 ms
+2021-05-03 16:46:14,296 [INFO] org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-05-03 16:46:14,304 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-2 - Starting...
+2021-05-03 16:46:14,397 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-2 - Start completed.
+2021-05-03 16:46:14,399 [INFO] org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-05-03 16:46:15,004 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-05-03 16:46:15,005 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-05-03 16:46:15,017 [INFO] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-05-03 16:46:15,922 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-05-03 16:46:16,024 [INFO] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-03 16:46:16,834 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 9090 (http) with context path '/sweetcherry-api'
+2021-05-03 16:46:16,836 [INFO] com.capgemini.SweetCherry [restartedMain] Started SweetCherry in 4.419 seconds (JVM running for 33.986)
+2021-05-03 16:46:16,842 [INFO] org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2021-05-03 16:46:23,188 [INFO] com.capgemini.SweetCherry [restartedMain] Starting SweetCherry on LIN25003910 with PID 9776 (C:\Users\surajyad\Sprint_01\Workspace\SweetCherryProject\lib\bin\main started by surajyad in C:\Users\surajyad\Sprint_01\Workspace\SweetCherryProject\lib)
+2021-05-03 16:46:23,196 [DEBUG] com.capgemini.SweetCherry [restartedMain] Running with Spring Boot v2.2.12.RELEASE, Spring v5.2.12.RELEASE
+2021-05-03 16:46:23,198 [INFO] com.capgemini.SweetCherry [restartedMain] No active profile set, falling back to default profiles: default
+2021-05-03 16:46:23,301 [INFO] org.springframework.boot.devtools.restart.ChangeableUrls [restartedMain] The Class-Path manifest attribute in C:\Users\surajyad\.gradle\caches\modules-2\files-2.1\org.glassfish.jaxb\jaxb-runtime\2.3.1\dd6dda9da676a54c5b36ca2806ff95ee017d8738\jaxb-runtime-2.3.1.jar referenced one or more files that do not exist: file:/C:/Users/surajyad/.gradle/caches/modules-2/files-2.1/org.glassfish.jaxb/jaxb-runtime/2.3.1/dd6dda9da676a54c5b36ca2806ff95ee017d8738/jaxb-api-2.3.1.jar,file:/C:/Users/surajyad/.gradle/caches/modules-2/files-2.1/org.glassfish.jaxb/jaxb-runtime/2.3.1/dd6dda9da676a54c5b36ca2806ff95ee017d8738/txw2-2.3.1.jar,file:/C:/Users/surajyad/.gradle/caches/modules-2/files-2.1/org.glassfish.jaxb/jaxb-runtime/2.3.1/dd6dda9da676a54c5b36ca2806ff95ee017d8738/istack-commons-runtime-3.0.7.jar,file:/C:/Users/surajyad/.gradle/caches/modules-2/files-2.1/org.glassfish.jaxb/jaxb-runtime/2.3.1/dd6dda9da676a54c5b36ca2806ff95ee017d8738/stax-ex-1.8.jar,file:/C:/Users/surajyad/.gradle/caches/modules-2/files-2.1/org.glassfish.jaxb/jaxb-runtime/2.3.1/dd6dda9da676a54c5b36ca2806ff95ee017d8738/FastInfoset-1.2.15.jar,file:/C:/Users/surajyad/.gradle/caches/modules-2/files-2.1/org.glassfish.jaxb/jaxb-runtime/2.3.1/dd6dda9da676a54c5b36ca2806ff95ee017d8738/javax.activation-api-1.2.0.jar
+2021-05-03 16:46:23,302 [INFO] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-05-03 16:46:23,302 [INFO] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-05-03 16:46:24,996 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-05-03 16:46:25,163 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 153ms. Found 6 JPA repository interfaces.
+2021-05-03 16:46:26,313 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9090 (http)
+2021-05-03 16:46:26,331 [INFO] org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2021-05-03 16:46:26,332 [INFO] org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-05-03 16:46:26,525 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/sweetcherry-api] [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-05-03 16:46:26,525 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 3222 ms
+2021-05-03 16:46:26,860 [INFO] org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-05-03 16:46:26,937 [INFO] org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.25.Final
+2021-05-03 16:46:27,195 [INFO] org.hibernate.annotations.common.Version [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-05-03 16:46:27,366 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2021-05-03 16:46:27,571 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2021-05-03 16:46:27,602 [INFO] org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-05-03 16:46:29,145 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-05-03 16:46:29,153 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-05-03 16:46:29,173 [WARN] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] Unable to start LiveReload server
+2021-05-03 16:46:30,458 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-05-03 16:46:30,931 [INFO] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-03 16:46:32,232 [INFO] org.apache.catalina.core.StandardService [restartedMain] Stopping service [Tomcat]
+2021-05-03 16:46:32,246 [INFO] org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [restartedMain] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-05-03 16:46:32,250 [ERROR] org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [restartedMain] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 9090 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 9090 or configure this application to listen on another port.
+
+2021-05-03 16:46:32,261 [INFO] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [restartedMain] Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-03 16:46:32,268 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-05-03 16:46:32,273 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Shutdown initiated...
+2021-05-03 16:46:32,280 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Shutdown completed.
+2021-05-03 16:47:08,610 [INFO] com.capgemini.SweetCherry [restartedMain] Starting SweetCherry on LIN25003910 with PID 12028 (C:\Users\surajyad\Sprint_01\Workspace\SweetCherryProject\lib\bin\main started by surajyad in C:\Users\surajyad\Sprint_01\Workspace\SweetCherryProject\lib)
+2021-05-03 16:47:08,613 [DEBUG] com.capgemini.SweetCherry [restartedMain] Running with Spring Boot v2.2.12.RELEASE, Spring v5.2.12.RELEASE
+2021-05-03 16:47:08,614 [INFO] com.capgemini.SweetCherry [restartedMain] No active profile set, falling back to default profiles: default
+2021-05-03 16:47:08,745 [INFO] org.springframework.boot.devtools.restart.ChangeableUrls [restartedMain] The Class-Path manifest attribute in C:\Users\surajyad\.gradle\caches\modules-2\files-2.1\org.glassfish.jaxb\jaxb-runtime\2.3.1\dd6dda9da676a54c5b36ca2806ff95ee017d8738\jaxb-runtime-2.3.1.jar referenced one or more files that do not exist: file:/C:/Users/surajyad/.gradle/caches/modules-2/files-2.1/org.glassfish.jaxb/jaxb-runtime/2.3.1/dd6dda9da676a54c5b36ca2806ff95ee017d8738/jaxb-api-2.3.1.jar,file:/C:/Users/surajyad/.gradle/caches/modules-2/files-2.1/org.glassfish.jaxb/jaxb-runtime/2.3.1/dd6dda9da676a54c5b36ca2806ff95ee017d8738/txw2-2.3.1.jar,file:/C:/Users/surajyad/.gradle/caches/modules-2/files-2.1/org.glassfish.jaxb/jaxb-runtime/2.3.1/dd6dda9da676a54c5b36ca2806ff95ee017d8738/istack-commons-runtime-3.0.7.jar,file:/C:/Users/surajyad/.gradle/caches/modules-2/files-2.1/org.glassfish.jaxb/jaxb-runtime/2.3.1/dd6dda9da676a54c5b36ca2806ff95ee017d8738/stax-ex-1.8.jar,file:/C:/Users/surajyad/.gradle/caches/modules-2/files-2.1/org.glassfish.jaxb/jaxb-runtime/2.3.1/dd6dda9da676a54c5b36ca2806ff95ee017d8738/FastInfoset-1.2.15.jar,file:/C:/Users/surajyad/.gradle/caches/modules-2/files-2.1/org.glassfish.jaxb/jaxb-runtime/2.3.1/dd6dda9da676a54c5b36ca2806ff95ee017d8738/javax.activation-api-1.2.0.jar
+2021-05-03 16:47:08,746 [INFO] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-05-03 16:47:08,746 [INFO] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-05-03 16:47:10,611 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-05-03 16:47:10,816 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 190ms. Found 6 JPA repository interfaces.
+2021-05-03 16:47:12,694 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 9090 (http)
+2021-05-03 16:47:12,734 [INFO] org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2021-05-03 16:47:12,735 [INFO] org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-05-03 16:47:13,201 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/sweetcherry-api] [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-05-03 16:47:13,204 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 4457 ms
+2021-05-03 16:47:14,102 [INFO] org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-05-03 16:47:14,482 [INFO] org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.25.Final
+2021-05-03 16:47:15,041 [INFO] org.hibernate.annotations.common.Version [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-05-03 16:47:15,290 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2021-05-03 16:47:15,487 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2021-05-03 16:47:15,518 [INFO] org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-05-03 16:47:17,165 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-05-03 16:47:17,172 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-05-03 16:47:17,192 [INFO] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-05-03 16:47:18,669 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-05-03 16:47:19,182 [INFO] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-03 16:47:20,767 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 9090 (http) with context path '/sweetcherry-api'
+2021-05-03 16:47:20,770 [INFO] com.capgemini.SweetCherry [restartedMain] Started SweetCherry in 12.631 seconds (JVM running for 13.477)
+2021-05-03 16:48:06,966 [INFO] com.capgemini.service.SweetCherryServiceImplTest [main] Starting SweetCherryServiceImplTest on LIN25003910 with PID 788 (started by surajyad in C:\Users\surajyad\Sprint_01\Workspace\SweetCherryProject\lib)
+2021-05-03 16:48:06,971 [DEBUG] com.capgemini.service.SweetCherryServiceImplTest [main] Running with Spring Boot v2.2.12.RELEASE, Spring v5.2.12.RELEASE
+2021-05-03 16:48:06,973 [INFO] com.capgemini.service.SweetCherryServiceImplTest [main] No active profile set, falling back to default profiles: default
+2021-05-03 16:48:09,484 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-05-03 16:48:09,655 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 154ms. Found 6 JPA repository interfaces.
+2021-05-03 16:48:10,886 [INFO] org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-05-03 16:48:10,973 [INFO] org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.25.Final
+2021-05-03 16:48:11,244 [INFO] org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-05-03 16:48:11,632 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-05-03 16:48:11,840 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-05-03 16:48:11,875 [INFO] org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-05-03 16:48:13,036 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-05-03 16:48:13,054 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-05-03 16:48:14,667 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-05-03 16:48:15,667 [INFO] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [main] Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-03 16:48:17,351 [INFO] com.capgemini.service.SweetCherryServiceImplTest [main] Started SweetCherryServiceImplTest in 11.084 seconds (JVM running for 13.684)
+2021-05-03 16:48:18,003 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] login(String userName, String password)
+2021-05-03 16:48:18,004 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] verifyLoginCredential(String userName, String password)
+2021-05-03 16:48:18,032 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] getDeliveryAddress(int addressId)
+2021-05-03 16:48:18,109 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] makeOnlinePayment(Payment payment)
+2021-05-03 16:48:18,110 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] isValidPaymentDetails(Payment payment)
+2021-05-03 16:48:18,147 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] login(String userName, String password)
+2021-05-03 16:48:18,148 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] verifyLoginCredential(String userName, String password)
+2021-05-03 16:48:18,328 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] addCupcakeToCart(Orders order) 
+2021-05-03 16:48:18,407 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] addCupcakeDetails(CupcakeDetails cupcakedetails)
+2021-05-03 16:48:18,468 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] modifyCupcakePrice(CupcakeDetails cupcakedetails)
+2021-05-03 16:48:18,544 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] modifyDeliveryAddress(UserDetails userDetails)
+2021-05-03 16:48:18,545 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] isValidAddressDetails(UserDetails userDetails)
+2021-05-03 16:48:18,581 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] deleteDeliveryAddress(int addressId)
+2021-05-03 16:48:18,674 [WARN] org.hibernate.engine.jdbc.spi.SqlExceptionHelper [main] SQL Error: 0, SQLState: 23502
+2021-05-03 16:48:18,675 [ERROR] org.hibernate.engine.jdbc.spi.SqlExceptionHelper [main] ERROR: null value in column "pin_code" violates not-null constraint
+  Detail: Failing row contains (1, mumbai, 12, dairy, null, MH, 1).
+2021-05-03 16:48:18,696 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] makeOnlineOrder(int orderId)
+2021-05-03 16:48:18,856 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] showOrderDetailsByUserId(int userId)
+2021-05-03 16:48:18,916 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] showOrderDetailsByUserId(int userId)
+2021-05-03 16:48:18,934 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] cancelOnlineOrder(int orderId)
+2021-05-03 16:48:19,022 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] modifyCupcakeRating(CupcakeDetails cupcakeDetails)
+2021-05-03 16:48:19,031 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] findCupcakeDetailsById(int cupcakeId)
+2021-05-03 16:48:19,040 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] findCupcakeDetailsById(int cupcakeId)
+2021-05-03 16:48:19,063 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] registerCustomer(UserDetails registerCustomer)
+2021-05-03 16:48:19,073 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] modifyDeliveryAddress(UserDetails userDetails)
+2021-05-03 16:48:19,073 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] isValidAddressDetails(UserDetails userDetails)
+2021-05-03 16:48:19,091 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] addCupcakeDetails(CupcakeDetails cupcakedetails)
+2021-05-03 16:48:19,097 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] addCupcakeDetails(CupcakeDetails cupcakedetails)
+2021-05-03 16:48:19,108 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] showCupcakeDetails()
+2021-05-03 16:48:19,230 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] makeOnlinePayment(Payment payment)
+2021-05-03 16:48:19,231 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] isValidPaymentDetails(Payment payment)
+2021-05-03 16:48:19,256 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] addCupcakeDetails(CupcakeDetails cupcakedetails)
+2021-05-03 16:48:19,273 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] logout()
+2021-05-03 16:48:19,293 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] findCupcakeDetailsById(int cupcakeId)
+2021-05-03 16:48:19,304 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] modifyCupcakePrice(CupcakeDetails cupcakedetails)
+2021-05-03 16:48:19,329 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] addCupcakeDetails(CupcakeDetails cupcakedetails)
+2021-05-03 16:48:19,347 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] addCupcakeToCart(Orders order) 
+2021-05-03 16:48:19,374 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] modifyPassword(int userId, String oldPassword, String newPassword)
+2021-05-03 16:48:19,411 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] addCupcakeDetails(CupcakeDetails cupcakedetails)
+2021-05-03 16:48:19,496 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] getAllOrderDetails()
+2021-05-03 16:48:19,538 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] addCupcakeToCart(Orders order) 
+2021-05-03 16:48:19,558 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] registerCustomer(UserDetails registerCustomer)
+2021-05-03 16:48:19,574 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] findCupcakeDetailsById(int cupcakeId)
+2021-05-03 16:48:19,609 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] addPaymentDetails(Payment payment)
+2021-05-03 16:48:19,661 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] makeOnlineOrder(int orderId)
+2021-05-03 16:48:19,700 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] cancelOnlineOrder(int orderId)
+2021-05-03 16:48:19,762 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] allDetailsOfAdminAndUser()
+2021-05-03 16:48:19,780 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] addCupcakeDetails(CupcakeDetails cupcakedetails)
+2021-05-03 16:48:19,799 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] findCupcakeDetailsById(int cupcakeId)
+2021-05-03 16:48:19,838 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] modifyPassword(int userId, String oldPassword, String newPassword)
+2021-05-03 16:48:19,872 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] deleteDeliveryAddress(int addressId)
+2021-05-03 16:48:19,908 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] addDeliveryAddress(UserDetails userDetails)
+2021-05-03 16:48:19,908 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] isValidAddressDetails(UserDetails userDetails)
+2021-05-03 16:48:19,927 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] removeCupcakeDetails(int cupcakId)
+2021-05-03 16:48:19,945 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] getOrderDetailsById(int orderId)
+2021-05-03 16:48:19,965 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] allUserDetailsById(int userId)
+2021-05-03 16:48:19,981 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] getOrderDetailsById(int orderId)
+2021-05-03 16:48:20,004 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] addCupcakeDetails(CupcakeDetails cupcakedetails)
+2021-05-03 16:48:20,009 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] modifyCupcakeName(int cupcakeId,String cupcakeName)
+2021-05-03 16:48:20,015 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] findCupcakeDetailsById(int cupcakeId)
+2021-05-03 16:48:20,034 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] updateCustomerProfile(UserDetails customer)
+2021-05-03 16:48:20,068 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] allUserDetailsById(int userId)
+2021-05-03 16:48:20,093 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] addDeliveryAddress(UserDetails userDetails)
+2021-05-03 16:48:20,094 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] isValidAddressDetails(UserDetails userDetails)
+2021-05-03 16:48:20,103 [WARN] org.hibernate.engine.jdbc.spi.SqlExceptionHelper [main] SQL Error: 0, SQLState: 23505
+2021-05-03 16:48:20,104 [ERROR] org.hibernate.engine.jdbc.spi.SqlExceptionHelper [main] ERROR: duplicate key value violates unique constraint "uk_7pqjkt6mwigem3tve6e8j2qlp"
+  Detail: Key (user_name)=(sky@322) already exists.
+2021-05-03 16:48:20,172 [INFO] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-03 16:48:20,190 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringContextShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-05-03 16:48:20,198 [INFO] com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2021-05-03 16:48:20,208 [INFO] com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
+2021-05-03 16:51:01,030 [INFO] com.capgemini.service.SweetCherryServiceImplUsingMockitoTest [main] Starting SweetCherryServiceImplUsingMockitoTest on LIN25003910 with PID 16276 (started by surajyad in C:\Users\surajyad\Sprint_01\Workspace\SweetCherryProject\lib)
+2021-05-03 16:51:01,031 [DEBUG] com.capgemini.service.SweetCherryServiceImplUsingMockitoTest [main] Running with Spring Boot v2.2.12.RELEASE, Spring v5.2.12.RELEASE
+2021-05-03 16:51:01,032 [INFO] com.capgemini.service.SweetCherryServiceImplUsingMockitoTest [main] No active profile set, falling back to default profiles: default
+2021-05-03 16:51:02,648 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-05-03 16:51:02,793 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 133ms. Found 6 JPA repository interfaces.
+2021-05-03 16:51:04,850 [INFO] org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-05-03 16:51:04,928 [INFO] org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.25.Final
+2021-05-03 16:51:05,003 [INFO] org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-05-03 16:51:05,336 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2021-05-03 16:51:05,570 [INFO] com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2021-05-03 16:51:05,731 [INFO] org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-05-03 16:51:06,806 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-05-03 16:51:06,815 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-05-03 16:51:08,024 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-05-03 16:51:09,076 [INFO] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [main] Initializing ExecutorService 'applicationTaskExecutor'
+2021-05-03 16:51:10,725 [INFO] com.capgemini.service.SweetCherryServiceImplUsingMockitoTest [main] Started SweetCherryServiceImplUsingMockitoTest in 10.219 seconds (JVM running for 12.51)
+2021-05-03 16:51:10,829 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] login(String userName, String password)
+2021-05-03 16:51:10,831 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] verifyLoginCredential(String userName, String password)
+2021-05-03 16:51:10,875 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] getDeliveryAddress(int addressId)
+2021-05-03 16:51:10,953 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] updateCustomerProfile(UserDetails customer)
+2021-05-03 16:51:10,968 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] modifyPassword(int userId, String oldPassword, String newPassword)
+2021-05-03 16:51:10,992 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] makeOnlinePayment(Payment payment)
+2021-05-03 16:51:10,993 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] isValidPaymentDetails(Payment payment)
+2021-05-03 16:51:11,044 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] addCupcakeToCart(Orders order) 
+2021-05-03 16:51:11,083 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] addCupcakeToCart(Orders order) 
+2021-05-03 16:51:11,112 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] showCupcakeDetails()
+2021-05-03 16:51:11,126 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] modifyCupcakeName(int cupcakeId,String cupcakeName)
+2021-05-03 16:51:11,127 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] findCupcakeDetailsById(int cupcakeId)
+2021-05-03 16:51:11,161 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] modifyDeliveryAddress(UserDetails userDetails)
+2021-05-03 16:51:11,162 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] isValidAddressDetails(UserDetails userDetails)
+2021-05-03 16:51:11,175 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] deleteDeliveryAddress(int addressId)
+2021-05-03 16:51:11,193 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] findCupcakeDetailsById(int cupcakeId)
+2021-05-03 16:51:11,222 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] getDeliveryAddress(int addressId)
+2021-05-03 16:51:11,236 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] makeOnlineOrder(int orderId)
+2021-05-03 16:51:11,261 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] showCupcakeDetails()
+2021-05-03 16:51:11,298 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] showOrderDetailsByUserId(int userId)
+2021-05-03 16:51:11,319 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] showOrderDetailsByUserId(int userId)
+2021-05-03 16:51:11,352 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] logout()
+2021-05-03 16:51:11,382 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] cancelOnlineOrder(int orderId)
+2021-05-03 16:51:11,396 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] registerCustomer(UserDetails registerCustomer)
+2021-05-03 16:51:11,424 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] modifyDeliveryAddress(UserDetails userDetails)
+2021-05-03 16:51:11,424 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] isValidAddressDetails(UserDetails userDetails)
+2021-05-03 16:51:11,438 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] addPaymentDetails(Payment payment)
+2021-05-03 16:51:11,454 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] makeOnlinePayment(Payment payment)
+2021-05-03 16:51:11,454 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] isValidPaymentDetails(Payment payment)
+2021-05-03 16:51:11,472 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] findCupcakeDetailsById(int cupcakeId)
+2021-05-03 16:51:11,488 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] findCupcakeDetailsById(int cupcakeId)
+2021-05-03 16:51:11,501 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] modifyPassword(int userId, String oldPassword, String newPassword)
+2021-05-03 16:51:11,514 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] login(String userName, String password)
+2021-05-03 16:51:11,514 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] verifyLoginCredential(String userName, String password)
+2021-05-03 16:51:11,525 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] addCupcakeDetails(CupcakeDetails cupcakedetails)
+2021-05-03 16:51:11,543 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] removeCupcakeDetails(int cupcakId)
+2021-05-03 16:51:11,558 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] getAllOrderDetails()
+2021-05-03 16:51:11,571 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] updateCustomerProfile(UserDetails customer)
+2021-05-03 16:51:11,582 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] addCupcakeToCart(Orders order) 
+2021-05-03 16:51:11,591 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] registerCustomer(UserDetails registerCustomer)
+2021-05-03 16:51:11,602 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] findCupcakeDetailsById(int cupcakeId)
+2021-05-03 16:51:11,617 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] makeOnlineOrder(int orderId)
+2021-05-03 16:51:11,638 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] modifyCupcakeRating(CupcakeDetails cupcakeDetails)
+2021-05-03 16:51:11,640 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] findCupcakeDetailsById(int cupcakeId)
+2021-05-03 16:51:11,650 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] cancelOnlineOrder(int orderId)
+2021-05-03 16:51:11,661 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] getAllOrderDetails()
+2021-05-03 16:51:11,682 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] deleteDeliveryAddress(int addressId)
+2021-05-03 16:51:11,699 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] addCupcakeDetails(CupcakeDetails cupcakedetails)
+2021-05-03 16:51:11,712 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] addDeliveryAddress(UserDetails userDetails)
+2021-05-03 16:51:11,712 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] isValidAddressDetails(UserDetails userDetails)
+2021-05-03 16:51:11,721 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] findCupcakeDetailsById(int cupcakeId)
+2021-05-03 16:51:11,728 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] modifyCupcakePrice(CupcakeDetails cupcakedetails)
+2021-05-03 16:51:11,729 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] findCupcakeDetailsById(int cupcakeId)
+2021-05-03 16:51:11,750 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] getOrderDetailsById(int orderId)
+2021-05-03 16:51:11,761 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] allUserDetailsById(int userId)
+2021-05-03 16:51:11,773 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] getOrderDetailsById(int orderId)
+2021-05-03 16:51:11,782 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] login(String userName, String password)
+2021-05-03 16:51:11,782 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] verifyLoginCredential(String userName, String password)
+2021-05-03 16:51:11,791 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] login(String userName, String password)
+2021-05-03 16:51:11,791 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] verifyLoginCredential(String userName, String password)
+2021-05-03 16:51:11,803 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] allUserDetailsById(int userId)
+2021-05-03 16:51:11,820 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] addDeliveryAddress(UserDetails userDetails)
+2021-05-03 16:51:11,821 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] isValidAddressDetails(UserDetails userDetails)
+2021-05-03 16:51:11,829 [INFO] com.capgemini.service.SweetCherryServiceImpl [main] findCupcakeDetailsById(int cupcakeId)
+2021-05-03 16:51:11,841 [INFO] org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
+2021-05-03 16:51:11,845 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringContextShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-05-03 16:51:11,847 [INFO] com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2021-05-03 16:51:11,892 [INFO] com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
