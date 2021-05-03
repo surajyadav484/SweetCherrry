@@ -32,8 +32,9 @@ public class AdminController {
 	 * Logger class provides the methods for logging. logger object is used to log
 	 * messages for specific system or application component
 	 */
-	private Logger logger = LoggerController.getLogger(SweetCherryServiceImpl.class);
+	private Logger logger = LoggerController.getLogger(AdminController.class);
 	String methodName = null; // initialization of String variable
+	static final  String  DESCRIPTION = " controller is called from AdminController";
 
 	// http://localhost:9090/sweetcherry-api/admin/viewOrderDetails
 	@GetMapping(path = "/viewOrderDetails", produces = "application/json") // @GetMapping is used for mapping http GET
@@ -41,7 +42,8 @@ public class AdminController {
 	public List<Orders> showAllOrderDetails() throws NoSuchOrderExists { // showAllOrderDetails() method will return the
 																			// list of order details
 		methodName = "showAllOrderDetails()";
-		logger.info(methodName + " controller is called from AdminController"); // use of info level logger
+		
+		logger.info(methodName, DESCRIPTION); // use of info level logger
 		return service.getAllOrderDetails(); // getAllOrderDetails() method is called from SweetCherryServiceImpl Class
 	}
 
@@ -56,7 +58,7 @@ public class AdminController {
 																												// theAddrress
 																												// object
 		methodName = " showDeliveryAddress(int addressId) ";
-		logger.info(methodName + " controller is called from AdminController"); // use of info level logger
+		logger.info(methodName , DESCRIPTION); // use of info level logger
 		return service.getDeliveryAddress(addressId); // getDeliveryAddress(addressId) method is called from
 														// SweetCherryServiceImpl Class
 	}
@@ -72,7 +74,7 @@ public class AdminController {
 																											// Order
 																											// Details
 		methodName = " getOrderDetailsByOrderId(int orderId)";
-		logger.info(methodName + " controller is called from AdminController"); // use of info level logger
+		logger.info(methodName , DESCRIPTION); // use of info level logger
 		return service.getOrderDetailsById(orderId); // getOrderDetailsById(orderId) is called from
 														// SweetCherryServiceImpl Class
 

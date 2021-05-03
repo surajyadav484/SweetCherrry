@@ -44,6 +44,8 @@ public class SweetCherryServiceImpl implements SweetCherryService {
 
 	private Logger logger = LoggerController.getLogger(SweetCherryServiceImpl.class);
 	String methodName = null;
+	
+	static final String DESCRIPTION = "Method is called";
 
 	// CUPCAKE
 	// MODULE---------------------------------------------------------------------------------
@@ -136,11 +138,11 @@ public class SweetCherryServiceImpl implements SweetCherryService {
 	// MODULE--------------------------------------------------------------------------------------------------
 
 	@Override
-	@Transactional
+	@Transactional 
 	public Payment makeOnlinePayment(Payment payment) throws PaymentFailedException {
 		Payment result = null;
 		methodName = "makeOnlinePayment(Payment payment)";
-		logger.info(methodName + " method is called");
+		logger.info(methodName , DESCRIPTION);
 		try {
 			if (isValidPaymentDetails(payment)) {
 				Payment paymentObject = paymentRepository.save(payment);
@@ -161,46 +163,30 @@ public class SweetCherryServiceImpl implements SweetCherryService {
 	public Orders makeOnlineOrder(int orderId) throws NoSuchOrderExists {
 		try {
 			methodName = "makeOnlineOrder(int orderId)";
-			logger.info(methodName + " method is called");
+			logger.info(methodName , DESCRIPTION);
 			Optional<Orders> orders = orderRepository.findById(orderId);
-			if (orders.get() != null && orders.get().getOrderStatus().equalsIgnoreCase("pending")) {
+			if (orders.isPresent() && orders.get() != null && orders.get().getOrderStatus().equalsIgnoreCase("pending")) {
 				orders.get().setOrderStatus("Ordered");
 				return orderRepository.save(orders.get());
-			}
+			}else
+				throw new NullPointerException("null pointer exxception");
 
-		} catch (NoSuchElementException e) {
+		} catch (NullPointerException e) {
 			throw new NoSuchOrderExists("The Order details you have entered is invalid ! Please enter valid details.");
 		}
-		return null;
+		
 	}
 
-	/*
-	 * @Override
-	 * 
-	 * @Transactional public UserDetails addUserDetails(UserDetails userDetails)
-	 * throws NoSuchOrderExists { try { cupcakeDao.createUserDetails(userDetails);
-	 * if(userDetails != null) return userDetails; else throw new
-	 * NoSuchElementException("Entered user details are incorrect"); }
-	 * catch(NoSuchElementException e) { throw new
-	 * NoSuchOrderExists("The user details you have entered is invalid ! Please enter valid details."
-	 * ); } }
-	 */
-
-	/*
-	 * @Override public CupcakeDetails addCupcakeDetails(CupcakeDetails
-	 * cupCakeDetails) {
-	 * 
-	 * }
-	 */
+	
 
 	@Override
 	public Orders cancelOnlineOrder(int orderId) throws NoSuchOrderExists {
 		try {
 			methodName = "cancelOnlineOrder(int orderId)";
-			logger.info(methodName + " method is called");
+			logger.info(methodName , DESCRIPTION);
 
 			Optional<Orders> orders = orderRepository.findById(orderId);
-			if (orders.get() != null && orders.get().getOrderStatus().equalsIgnoreCase("ordered")) {
+			if (orders.isPresent() && orders.get().getOrderStatus().equalsIgnoreCase("ordered")) {
 				orders.get().setOrderStatus("cancelled");
 				orderRepository.save(orders.get());
 				return orders.get();
@@ -215,7 +201,7 @@ public class SweetCherryServiceImpl implements SweetCherryService {
 	public List<Orders> showOrderDetailsByUserId(int userId) throws NoSuchOrderExists {
 		try {
 			methodName = "showOrderDetailsByUserId(int userId)";
-			logger.info(methodName + " method is called");
+			logger.info(methodName , DESCRIPTION);
 
 			List<Orders> orderDetails = orderRepository.findByuserId(userId);
 			if (!orderDetails.isEmpty()) {
@@ -238,7 +224,7 @@ public class SweetCherryServiceImpl implements SweetCherryService {
 		UserDetails result = null;
 		try {
 			methodName = "modifyDeliveryAddress(UserDetails userDetails)";
-			logger.info(methodName + " method is called");
+			logger.info(methodName , DESCRIPTION);
 			if (isValidAddressDetails(userDetails)) {
 				UserDetails userDetail = userRepository.save(userDetails);
 				result = userDetail;
@@ -256,7 +242,7 @@ public class SweetCherryServiceImpl implements SweetCherryService {
 		UserDetails result = null;
 		try {
 			methodName = "addDeliveryAddress(UserDetails userDetails)";
-			logger.info(methodName + " method is called");
+			logger.info(methodName , DESCRIPTION);
 			if (isValidAddressDetails(userDetails)) {
 				UserDetails userDetail = userRepository.save(userDetails);
 				result = userDetail;
@@ -274,10 +260,9 @@ public class SweetCherryServiceImpl implements SweetCherryService {
 	public boolean deleteDeliveryAddress(int addressId) throws NoSuchAddressExists {
 		try {
 			methodName = "deleteDeliveryAddress(int addressId)";
-			logger.info(methodName + " method is called");
-
+			logger.info(methodName , DESCRIPTION);
 			Optional<Address> address = addressrepository.findById(addressId);
-			if (address.get() != null) {
+			if (address.isPresent()) {
 				addressrepository.delete(address.get());
 				return true;
 			} else
@@ -291,31 +276,36 @@ public class SweetCherryServiceImpl implements SweetCherryService {
 
 	@Override
 	public List<Orders> getAllOrderDetails() throws NoSuchOrderExists {
+		
+		try {
 		methodName = "getAllOrderDetails()";
-		logger.info(methodName + " method is called");
+		logger.info(methodName , DESCRIPTION);
 
 		List<Orders> orderDetails = orderRepository.findAll();
 		if (!orderDetails.isEmpty()) {
 			return orderDetails;
 		} else
+			throw new NullPointerException("null value present");
+		}catch(NullPointerException e) {
 			throw new NoSuchOrderExists("there is no any order details available");
-
+		}
 	}
 
 	@Override
 	public Address getDeliveryAddress(int addressId) throws NoSuchAddressExists {
 		try {
 			methodName = "getDeliveryAddress(int addressId)";
-			logger.info(methodName + " method is called");
+			logger.info(methodName , DESCRIPTION);
 
 			Optional<Address> address = addressrepository.findById(addressId);
-			if (address.get() != null) {
+			if (address.isPresent()) {
 				return address.get();
-			}
-		} catch (NoSuchElementException e) {
+			}else 
+				throw new NullPointerException("null value present");
+		} catch (NullPointerException e) {
 			throw new NoSuchAddressExists("Address with address id " + addressId + " does not exist");
 		}
-		return null;
+		
 
 	}
 
@@ -323,21 +313,23 @@ public class SweetCherryServiceImpl implements SweetCherryService {
 	public Orders getOrderDetailsById(int orderId) throws NoSuchOrderExists {
 		try {
 			methodName = "getOrderDetailsById(int orderId)";
-			logger.info(methodName + " method is called");
+			logger.info(methodName , DESCRIPTION);
 
 			Optional<Orders> orderDetails = orderRepository.findById(orderId);
-			if (orderDetails.get() != null)
+			if (orderDetails.isPresent())
 				return orderDetails.get();
-		} catch (NoSuchElementException e) {
+			else
+				throw new NullPointerException("null values passed");
+		} catch (NullPointerException e) {
 			throw new NoSuchOrderExists("There is no any order- details available with orderId " + orderId);
 		}
-		return null;
+		
 	}
 
 	public boolean isValidPaymentDetails(Payment payment) {
 
 		methodName = "isValidPaymentDetails(Payment payment)";
-		logger.info(methodName + " method is called");
+		logger.info(methodName , DESCRIPTION);
 
 		String stringRegex = "[A-Za-z]+";
 
@@ -349,7 +341,7 @@ public class SweetCherryServiceImpl implements SweetCherryService {
 
 	public boolean isValidAddressDetails(UserDetails userDetails) {
 		methodName = "isValidAddressDetails(UserDetails userDetails)";
-		logger.info(methodName + " method is called");
+		logger.info(methodName , DESCRIPTION);
 
 		String stringRegex = "[A-Za-z]+";
 		String pincodeRegex = "[0-9]+";

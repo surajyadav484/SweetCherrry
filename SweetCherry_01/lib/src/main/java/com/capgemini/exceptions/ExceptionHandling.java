@@ -33,10 +33,10 @@ public class ExceptionHandling {
 	public String exceptionHandler(Exception e) {
 		logger.error("error encountered"); // error level logger is used.
 
-		// initialization of String variable with error message.
-		String message = e.getMessage();
 		// returning message to the calling method
-		return message;
+		return e.getMessage();
+		
+		
 	}
 
 }

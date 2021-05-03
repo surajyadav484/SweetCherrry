@@ -8,7 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.validation.constraints.Min;
 
@@ -19,44 +18,39 @@ import org.springframework.stereotype.Component;
 @Component
 @Scope(scopeName = "prototype")
 @Entity
-@NamedQueries({
-	@NamedQuery(name = "getCupcakeDetails",query = "SELECT c FROM CupcakeDetails c"),
-	@NamedQuery(name = "rateCupcake",query = "UPDATE CupcakeDetails c SET c.rating =:rating WHERE c.cupcakeId=:id")
-})
+
+@NamedQuery(name = "getCupcakeDetails", query = "SELECT c FROM CupcakeDetails c")
+@NamedQuery(name = "rateCupcake", query = "UPDATE CupcakeDetails c SET c.rating =:rating WHERE c.cupcakeId=:id")
+
 public class CupcakeDetails {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "CUPCAKE_ID")
 	private int cupcakeId;
-	
-	@Column(name = "CUPCAKE_NAME" , nullable = false)
+
+	@Column(name = "CUPCAKE_NAME", nullable = false)
 	private String cupcakeName;
-	
-	@Column(name = "CUPCAKE_DESCRIPTION" ,nullable = false)
+
+	@Column(name = "CUPCAKE_DESCRIPTION", nullable = false)
 	private String cupcakeDescription;
-	
-	@Column(name = "PRICE" )
+
+	@Column(name = "PRICE")
 	@Min(value = 0)
 	private double price;
-	
+
 	@Column(name = "RATING")
 	private int rating;
-	
+
 	@Autowired
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "categoryId")
 	private CupcakeCategory cupcakeCategory;
+
 	
-	/*
-	 * @Autowired
-	 * 
-	 * @ManyToMany(mappedBy = "cupcakeDetails" ) private Set<Orders> order;
-	 */
-	  public CupcakeCategory getCupcakeCategory() {
-		  return cupcakeCategory; 
-		  }
-	 
+	public CupcakeCategory getCupcakeCategory() {
+		return cupcakeCategory;
+	}
 
 	public void setCupcakeCategory(CupcakeCategory cupcakeCategory) {
 		this.cupcakeCategory = cupcakeCategory;
@@ -65,10 +59,9 @@ public class CupcakeDetails {
 	public CupcakeDetails() {
 		super();
 	}
-	
 
 	public CupcakeDetails(int cupcakeId, String cupcakeName, String cupcakeDescription, @Min(0) double price,
-			 int rating, CupcakeCategory cupcakeCategory) {
+			int rating, CupcakeCategory cupcakeCategory) {
 		super();
 		this.cupcakeId = cupcakeId;
 		this.cupcakeName = cupcakeName;
@@ -76,30 +69,37 @@ public class CupcakeDetails {
 		this.price = price;
 		this.rating = rating;
 		this.cupcakeCategory = cupcakeCategory;
-		//this.order = order;
+		
 	}
 
 	public int getCupcakeId() {
 		return cupcakeId;
 	}
+
 	public void setCupcakeId(int cupcakeId) {
 		this.cupcakeId = cupcakeId;
 	}
+
 	public String getCupcakeName() {
 		return cupcakeName;
 	}
+
 	public void setCupcakeName(String cupcakeName) {
 		this.cupcakeName = cupcakeName;
 	}
+
 	public String getCupcakeDescription() {
 		return cupcakeDescription;
 	}
+
 	public void setCupcakeDescription(String cupcakeDescription) {
 		this.cupcakeDescription = cupcakeDescription;
 	}
+
 	public double getPrice() {
 		return price;
 	}
+
 	public void setPrice(double price) {
 		this.price = price;
 	}

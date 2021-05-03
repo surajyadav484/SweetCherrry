@@ -4,6 +4,7 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,8 +22,8 @@ import org.springframework.stereotype.Component;
 @Component
 @Scope(scopeName = "prototype")
 @Entity
-@NamedQueries({@NamedQuery(name = "showOrderDetailByUserId", query = "SELECT o FROM Orders o WHERE o.userDetails.userId=:userId") ,
-	@NamedQuery(name = "showAllOrderDetails", query = "FROM Orders") })
+@NamedQuery(name = "showOrderDetailByUserId", query = "SELECT o FROM Orders o WHERE o.userDetails.userId=:userId")
+@NamedQuery(name = "showAllOrderDetails", query = "FROM Orders")
 public class Orders {
 
 	@Id
@@ -48,24 +49,15 @@ public class Orders {
 	private UserDetails userDetails;
 
 	@Autowired
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "cupcakeDetails_orders", joinColumns = { @JoinColumn(name = "order_id") }, inverseJoinColumns = {
 			@JoinColumn(name = "cupcake_id") })
-	private Set<CupcakeDetails> cupcakeDetails=null;
-
-	/*
-	 * @Autowired
-	 * 
-	 * @OneToOne
-	 * 
-	 * @JoinColumn(name = "status") private Payment payment;
-	 */
+	private Set<CupcakeDetails> cupcakeDetails = null;
 
 	public Orders() {
 		super();
 	}
 
-	
 	public double getTotalPrice() {
 		return totalPrice;
 	}
@@ -134,20 +126,11 @@ public class Orders {
 		this.userDetails = userDetails;
 	}
 
-	/*
-	 * public Payment getPayment() { return payment; }
-	 * 
-	 * public void setPayment(Payment payment) { this.payment = payment; }
-	 */
-
 	@Override
 	public String toString() {
 		return "Orders [orderId=" + orderId + ", orderDate=" + orderDate + ", quantity=" + quantity + ", orderStatus="
 				+ orderStatus + ", totalPrice=" + totalPrice + ", userDetails=" + userDetails + ", cupcakeDetails="
-				+ cupcakeDetails + ", payment="  + "]";
+				+ cupcakeDetails + ", payment=" + "]";
 	}
-
-	
-	
 
 }

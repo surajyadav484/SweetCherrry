@@ -9,7 +9,7 @@
 plugins {
     // Apply the java-library plugin for API and implementation separation.
     id 'java-library'
-    id "org.sonarqube" version "3.0"
+    
 }
 
 repositories {
@@ -37,11 +37,7 @@ dependencies {
 	 testImplementation group: 'org.mockito', name: 'mockito-all', version: '1.10.19'
 
 	compile 'org.slf4j:slf4j-parent:2.0.0-alpha1'
-	// https://mvnrepository.com/artifact/org.sonarsource.scanner.gradle/sonarqube-gradle-plugin
-	implementation group: 'org.sonarsource.scanner.gradle', name: 'sonarqube-gradle-plugin', version: '3.1.1'
-	
-	// https://mvnrepository.com/artifact/org.sonarsource.sonarqube/sonar-plugin-api
-	implementation group: 'org.sonarsource.sonarqube', name: 'sonar-plugin-api', version: '8.7.1.42226'
+	compile 'org.sonarsource.sslr:sslr:1.24.0.633'
 	
 	
 }

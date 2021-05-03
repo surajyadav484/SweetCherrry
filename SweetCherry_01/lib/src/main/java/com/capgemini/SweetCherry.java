@@ -17,7 +17,7 @@ public class SweetCherry { //This is the main Class from where the program execu
 
 		//ApplicationContext is container which is going to store the beans.
 		//SpringApplication.run() is used to launch the application.
-		ApplicationContext context = SpringApplication.run(SweetCherry.class, args);
+		SpringApplication.run(SweetCherry.class, args);
 
 	}
 

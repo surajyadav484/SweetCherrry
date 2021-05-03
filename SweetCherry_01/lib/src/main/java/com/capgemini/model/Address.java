@@ -1,6 +1,5 @@
 package com.capgemini.model;
 
-import javax.annotation.Generated;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,8 +9,9 @@ import javax.persistence.Id;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-// @Component 
+// @Component is used to register the Entity as bean
 @Component
+
 @Scope(scopeName = "prototype")
 @Entity
 public class Address {

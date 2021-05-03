@@ -17,8 +17,8 @@ import org.springframework.stereotype.Component;
 public class Payment {
 
 	@Id
-	@GeneratedValue( strategy = GenerationType.IDENTITY)
-	@Column(name = "PAYMENT_ID")//, nullable = false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "PAYMENT_ID", nullable = false)
 	private int paymentId;
 
 	@Column(name = "CARD_NUMBER", length = 12, nullable = false)
@@ -34,34 +34,13 @@ public class Payment {
 	private String expiryDate;
 
 	@Column(name = "STATUS", nullable = false)
-	private String status;
+	private String paymentStatus;
 
 	@Autowired
 	@OneToOne
 	private Orders order;
 
-	/*
-	 * @Autowired
-	 * 
-	 * @OneToMany
-	 * 
-	 * @JoinColumn(name="userId") private Set<UserDetails> userDetails;
-	 */
 
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-	/*
-	 * public Set<UserDetails> getUserDetails() { return userDetails; }
-	 * 
-	 * public void setUserDetails(Set<UserDetails> userDetails) { this.userDetails =
-	 * userDetails; }
-	 */
 
 	public Payment() {
 	}
@@ -71,8 +50,6 @@ public class Payment {
 		this.paymentId = paymentId;
 		this.cardHolderName = cardHolderName;
 	}
-	
-	
 
 	public Payment(String cardHolderName) {
 		super();
@@ -87,9 +64,7 @@ public class Payment {
 		this.cvv = cvv;
 		this.cardHolderName = cardHolderName;
 		this.expiryDate = expiryDate;
-		this.status = status;
 		this.order = order;
-		// this.userDetails = roleDetails;
 	}
 
 	public int getPaymentId() {
@@ -140,18 +115,20 @@ public class Payment {
 		this.expiryDate = expiryDate;
 	}
 
+	
+
 	public String getPaymentStatus() {
-		return status;
+		return paymentStatus;
 	}
 
 	public void setPaymentStatus(String paymentStatus) {
-		this.status = paymentStatus;
+		this.paymentStatus = paymentStatus;
 	}
 
 	@Override
 	public String toString() {
 		return "Payment [paymentId=" + paymentId + ", cardNo=" + cardNo + ", cvv=" + cvv + ", cardHolderName="
-				+ cardHolderName + ", expiryDate=" + expiryDate + ", status=" + status + ", order=" + order + "]";
+				+ cardHolderName + ", expiryDate=" + expiryDate + ", status=" + paymentStatus + ", order=" + order + "]";
 	}
 
 }

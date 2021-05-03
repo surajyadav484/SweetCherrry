@@ -44,8 +44,9 @@ public class UserController {
 	 * messages for specific system or application component
 	 */
 
-	private Logger logger = LoggerController.getLogger(SweetCherryServiceImpl.class);
+	private Logger logger = LoggerController.getLogger(UserController.class);
 	String methodName = null;
+	static final  String  DESCRIPTION = " controller is called from AdminController";
 
 	// CUPCAKE
 	// MODULE--------------------------------------------------------------------------------------------
@@ -113,7 +114,7 @@ public class UserController {
 	// onlinePayment( Payment payment) method will return Payment Object
 	public Payment onlinePayment(@RequestBody Payment payment) throws PaymentFailedException {
 		methodName = "onlinePayment(Payment payment)";
-		logger.info(methodName + " controller is called from UserController");
+		logger.info(methodName , DESCRIPTION);
 		return cupcakeservice.makeOnlinePayment(payment); // makeOnlinePayment(payment) method is called from
 															// SweetCherryServiceImpl Class
 	}
@@ -125,7 +126,7 @@ public class UserController {
 	// placeOnlineOrder( int orderId) will return the Orders Object
 	public Orders placeOnlineOrder(@PathVariable("orderId") int orderId) throws NoSuchOrderExists {
 		methodName = "placeOnlineOrder( int orderId)";
-		logger.info(methodName + " controller is called from UserController"); // info lever logger is used
+		logger.info(methodName , DESCRIPTION); // info lever logger is used
 		return cupcakeservice.makeOnlineOrder(orderId); // makeOnlineOrder(orderId) is called from
 														// SweetCherryServiceImpl Class
 	}
@@ -137,9 +138,9 @@ public class UserController {
 
 	// This method will return specific Orders Object
 	public Orders cancelOrder(@PathVariable("orderId") int orderid) throws NoSuchOrderExists {
-		methodName = "cancelOrder(int orderid)";
-		logger.info(methodName + " controller is called from UserController"); // info lever logger is used
-		return cupcakeservice.cancelOnlineOrder(orderid); // cancelOnlineOrder(orderid) is called from
+		methodName = "cancelOrder(int orderId)";
+		logger.info(methodName ,DESCRIPTION); // info lever logger is used
+		return cupcakeservice.cancelOnlineOrder(orderid); // cancelOnlineOrder(orderId) is called from
 															// SweetCherryServiceImpl Class
 	}
 
@@ -150,7 +151,7 @@ public class UserController {
 	// This method will return the list of Orders Object based on the userId
 	public List<Orders> viewAllOrderDetailsByUserId(@PathVariable("userId") int userId) throws NoSuchOrderExists {
 		methodName = "viewAllOrderDetailsByUserId( int userId)";
-		logger.info(methodName + " controller is called from UserController"); // info lever logger is used
+		logger.info(methodName , DESCRIPTION); // info lever logger is used
 		return cupcakeservice.showOrderDetailsByUserId(userId); // showOrderDetailsByUserId(userId) is called from
 																// SweetCherryServiceImpl Class
 	}
@@ -161,7 +162,7 @@ public class UserController {
 	// modifyAddress(UserDetails userDetails) will return UserDetails Object
 	public UserDetails modifyAddress(@RequestBody UserDetails userDetails) throws NoSuchUserExists {
 		methodName = "modifyAddress(UserDetails userDetails)";
-		logger.info(methodName + " controller is called from UserController"); // info level logger is used
+		logger.info(methodName , DESCRIPTION); // info level logger is used
 		return cupcakeservice.modifyDeliveryAddress(userDetails); // modifyDeliveryAddress(userDetails) is called from
 																	// SweetCherryServiceImpl Class
 	}
@@ -172,7 +173,7 @@ public class UserController {
 	// This method will return the Address Object
 	public UserDetails addDeliveryAddress(@RequestBody UserDetails userDetails) throws NoSuchUserExists {
 		methodName = "addDeliveryAddress(UserDetails userDetails)";
-		logger.info(methodName + " controller is called from UserController"); // info level logger is used
+		logger.info(methodName , DESCRIPTION); // info level logger is used
 		return cupcakeservice.addDeliveryAddress(userDetails); // addDeliveryAddress(userDetails) is called from
 																// SweetCherryServiceImpl Class
 	}
@@ -183,7 +184,7 @@ public class UserController {
 	// This method will return boolean values depending on the Operation
 	public boolean removeCustomerDeliveryAddress(@PathVariable("addressId") int addressId) throws NoSuchAddressExists {
 		methodName = "removeCustomerDeliveryAddress( int addressId)";
-		logger.info(methodName + " controller is called from UserController"); // info level logger is used
+		logger.info(methodName ,  DESCRIPTION); // info level logger is used
 		return cupcakeservice.deleteDeliveryAddress(addressId); // deleteDeliveryAddress(addressId) is called from
 																// SweetCherryServiceImpl Class
 	}

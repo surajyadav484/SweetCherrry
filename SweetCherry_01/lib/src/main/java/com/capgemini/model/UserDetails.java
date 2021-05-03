@@ -25,16 +25,16 @@ public class UserDetails {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int userId;
 
-	@Column(name = "FIRST_NAME")//, nullable = false)
+	@Column(name = "FIRST_NAME", nullable = false)
 	private String firstName;
 
-	@Column(name = "LAST_NAME")//, nullable = false)
+	@Column(name = "LAST_NAME", nullable = false)
 	private String lastName;
 
-	@Column(name = "USER_NAME")//, nullable = false)
+	@Column(name = "USER_NAME", nullable = false)
 	private String email;
 
-	@Column(name = "PASSWORD")//, nullable = false)
+	@Column(name = "PASSWORD", nullable = false)
 	private String password;
 
 	@Autowired
@@ -46,18 +46,6 @@ public class UserDetails {
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "USER_ID")
 	private Set<Address> address;
-
-	
-	/*
-	 * @Autowired
-	 * 
-	 * @OneToMany(mappedBy = "userDetails") private Set<Orders> order;
-	 * 
-	 * 
-	 * public Set<Orders> getOrder() { return order; }
-	 * 
-	 * public void setOrder(Set<Orders> order) { this.order = order; }
-	 */
 
 	public Set<Address> getAddress() {
 		return address;
@@ -115,12 +103,9 @@ public class UserDetails {
 		this.password = password;
 	}
 
-
 	public UserDetails() {
 		super();
 	}
-	
-	
 
 	public UserDetails(int userId, String firstName, String lastName, String email, String password, Role role,
 			Set<Address> address) {
@@ -133,7 +118,5 @@ public class UserDetails {
 		this.role = role;
 		this.address = address;
 	}
-
-	
 
 }
