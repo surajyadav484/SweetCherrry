@@ -1,5 +1,6 @@
 package com.capgemini.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,9 +8,20 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.validation.constraints.Min;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+@Component
+@Scope(scopeName = "prototype")
 @Entity
+@NamedQueries({
+	@NamedQuery(name = "getCupcakeDetails",query = "SELECT c FROM CupcakeDetails c")
+})
 public class CupcakeDetails {
 
 	@Id
@@ -27,17 +39,28 @@ public class CupcakeDetails {
 	@Min(value = 0)
 	private double price;
 	
-	@Column(name = "STOCK")
-	@Min(value = 0)
-	private int stock;
+	/*
+	 * @Column(name = "STOCK")
+	 * 
+	 * @Min(value = 0) private int stock;
+	 */
+	@Column(name = "RATING")
+	private int rating;
 	
-	@ManyToOne
+	@Autowired
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "categoryId")
 	private CupcakeCategory cupcakeCategory;
 	
-	public CupcakeCategory getCupcakeCategory() {
-		return cupcakeCategory;
-	}
+	/*
+	 * @Autowired
+	 * 
+	 * @ManyToMany(mappedBy = "cupcakeDetails" ) private Set<Orders> order;
+	 */
+	  public CupcakeCategory getCupcakeCategory() {
+		  return cupcakeCategory; 
+		  }
+	 
 
 	public void setCupcakeCategory(CupcakeCategory cupcakeCategory) {
 		this.cupcakeCategory = cupcakeCategory;
@@ -47,15 +70,20 @@ public class CupcakeDetails {
 		super();
 	}
 	
-	public CupcakeDetails(int cupcakeId, String cupcakeName, String cupcakeDescription, double price, int stock) {
+
+	public CupcakeDetails(int cupcakeId, String cupcakeName, String cupcakeDescription, @Min(0) double price,
+			 int rating, CupcakeCategory cupcakeCategory) {
 		super();
 		this.cupcakeId = cupcakeId;
 		this.cupcakeName = cupcakeName;
 		this.cupcakeDescription = cupcakeDescription;
 		this.price = price;
-		this.stock = stock;
+		
+		this.rating = rating;
+		this.cupcakeCategory = cupcakeCategory;
+		//this.order = order;
 	}
-	
+
 	public int getCupcakeId() {
 		return cupcakeId;
 	}
@@ -80,12 +108,17 @@ public class CupcakeDetails {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	public int getStock() {
-		return stock;
+	
+
+	public int getRating() {
+		return rating;
 	}
-	public void setStock(int stock) {
-		this.stock = stock;
+
+	public void setRating(int rating) {
+		this.rating = rating;
 	}
 	
-	
+	public void addOrders(Orders order) {
+		
+	}
 }

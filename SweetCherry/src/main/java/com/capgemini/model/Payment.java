@@ -1,114 +1,136 @@
 package com.capgemini.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+@Component
+@Scope(scopeName = "prototype")
 @Entity
 public class Payment {
 
-			
-		 @Id
-		 @Column(name = "CARD_NUMBER", length = 12 ,nullable = false)
-		 private long cardNo;
-		 
-		 @Column(name = "CVV",nullable = false)
-		 private int cvv;
-		 
-		 @Column(name = "CARD_HOLDER_NAME" , nullable = false)
-		 private String cardHolderName;
-		 
-		 @Column(name = "EXPIRY_DATE" ,nullable = false)
-		 private String expiryDate;
-		 
-		 @Column(name = "STATUS", nullable = false)
-		 private String status;
-		 
-		 @Column(name = "CASH_ON_DELIVERY")
-		 private boolean cod;
-		 
-		 @OneToOne
-		 @JoinColumn(name="userId")
-		 private RoleDetails roleDetails;
-		 
-		 public String getStatus() {
-			return status;
-		}
+	@Id
+	@Column(name = "PAYMENT_ID", length = 12, nullable = false)
+	private int paymentId;
 
-		public void setStatus(String status) {
-			this.status = status;
-		}
+	@Column(name = "CARD_NUMBER", length = 12, nullable = false)
+	private long cardNo;
 
-		public boolean isCod() {
-			return cod;
-		}
+	@Column(name = "CVV", nullable = false)
+	private int cvv;
 
-		public void setCod(boolean cod) {
-			this.cod = cod;
-		}
+	@Column(name = "CARD_HOLDER_NAME", nullable = false)
+	private String cardHolderName;
 
-		public RoleDetails getRoleDetails() {
-			return roleDetails;
-		}
+	@Column(name = "EXPIRY_DATE", nullable = false)
+	private String expiryDate;
 
-		public void setRoleDetails(RoleDetails roleDetails) {
-			this.roleDetails = roleDetails;
-		}
+	@Column(name = "STATUS", nullable = false)
+	private String status;
 
-		public Payment() {
-		}
+	@Autowired
+	@OneToOne
+	private Orders order;
 
-		public Payment(long cardNo, int cvv, String cardHolderName, String expiryDate, String paymentStatus) {
-			super();
-			this.cardNo = cardNo;
-			this.cvv = cvv;
-			this.cardHolderName = cardHolderName;
-			this.expiryDate = expiryDate;
-			this.status = paymentStatus;
-		}
+	/*
+	 * @Autowired
+	 * 
+	 * @OneToMany
+	 * 
+	 * @JoinColumn(name="userId") private Set<UserDetails> userDetails;
+	 */
 
-		public long getCardNo() {
-			return cardNo;
-		}
+	public String getStatus() {
+		return status;
+	}
 
-		public void setCardNo(long cardNo) {
-			this.cardNo = cardNo;
-		}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
-		public int getCvv() {
-			return cvv;
-		}
+	/*
+	 * public Set<UserDetails> getUserDetails() { return userDetails; }
+	 * 
+	 * public void setUserDetails(Set<UserDetails> userDetails) { this.userDetails =
+	 * userDetails; }
+	 */
 
-		public void setCvv(int cvv) {
-			this.cvv = cvv;
-		}
+	public Payment() {
+	}
 
-		public String getCardHolderName() {
-			return cardHolderName;
-		}
+	public Payment(int paymentId, long cardNo, int cvv, String cardHolderName, String expiryDate, String status,
+			Orders order) {
+		super();
+		this.paymentId = paymentId;
+		this.cardNo = cardNo;
+		this.cvv = cvv;
+		this.cardHolderName = cardHolderName;
+		this.expiryDate = expiryDate;
+		this.status = status;
+		this.order = order;
+		// this.userDetails = roleDetails;
+	}
 
-		public void setCardHolderName(String cardHolderName) {
-			this.cardHolderName = cardHolderName;
-		}
+	public int getPaymentId() {
+		return paymentId;
+	}
 
-		public String getExpiryDate() {
-			return expiryDate;
-		}
+	public void setPaymentId(int paymentId) {
+		this.paymentId = paymentId;
+	}
 
-		public void setExpiryDate(String expiryDate) {
-			this.expiryDate = expiryDate;
-		}
+	public Orders getOrder() {
+		return order;
+	}
 
-		public String getPaymentStatus() {
-			return status;
-		}
+	public void setOrder(Orders order) {
+		this.order = order;
+	}
 
-		public void setPaymentStatus(String paymentStatus) {
-			this.status = paymentStatus;
-		}
-		 
-		 
+	public long getCardNo() {
+		return cardNo;
+	}
+
+	public void setCardNo(long cardNo) {
+		this.cardNo = cardNo;
+	}
+
+	public int getCvv() {
+		return cvv;
+	}
+
+	public void setCvv(int cvv) {
+		this.cvv = cvv;
+	}
+
+	public String getCardHolderName() {
+		return cardHolderName;
+	}
+
+	public void setCardHolderName(String cardHolderName) {
+		this.cardHolderName = cardHolderName;
+	}
+
+	public String getExpiryDate() {
+		return expiryDate;
+	}
+
+	public void setExpiryDate(String expiryDate) {
+		this.expiryDate = expiryDate;
+	}
+
+	public String getPaymentStatus() {
+		return status;
+	}
+
+	public void setPaymentStatus(String paymentStatus) {
+		this.status = paymentStatus;
+	}
 
 }
