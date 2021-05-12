@@ -33,6 +33,7 @@ import com.capgemini.repository.AddressRepository;
 import com.capgemini.repository.CupcakeDetailsRepository;
 import com.capgemini.repository.OrderRepository;
 import com.capgemini.repository.PaymentRepository;
+import com.capgemini.repository.RoleRepository;
 import com.capgemini.repository.UserDetailsRepository;
 
 @SpringBootTest
@@ -41,6 +42,9 @@ class SweetCherryServiceImplUsingMockitoTest {
 	
 	@MockBean
 	private UserDetailsRepository userDetailsRepository ;
+	
+	@Autowired
+	private RoleRepository roleRepository ; 
 	
 	@Autowired
 	private SweetCherryService cupcakeService;
@@ -110,6 +114,7 @@ class SweetCherryServiceImplUsingMockitoTest {
 		userDetails.setUserId(10001);
 		
 		Role role =  new Role(2,"user");
+		roleRepository.save(role);
 		userDetails.setRole(role);
 		
 		Optional<UserDetails> expected = Optional.of(userDetails);

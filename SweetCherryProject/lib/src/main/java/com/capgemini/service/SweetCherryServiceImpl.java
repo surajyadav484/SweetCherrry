@@ -45,13 +45,13 @@ public class SweetCherryServiceImpl implements SweetCherryService {
 
 	@Autowired
 	private PaymentRepository paymentRepository;
-	
+
 	@Autowired
 	private EmailSenderService mailService;
-	
+
 	@Autowired
 	private CupcakeCategoryRepository cupcakeCategoryRepository;
-	
+
 	@Autowired
 	private AddressRepository addressrepository;
 
@@ -59,9 +59,11 @@ public class SweetCherryServiceImpl implements SweetCherryService {
 	String methodName = null;
 	static final String DESCRIPTION = "Method is called from SweetCherryServiceImpl class";
 
+	String passwordRegex = "^(?=.*[0-9])" + "(?=.*[a-z])(?=.*[A-Z])" + "(?=.*[@#$%^&+=])" + "(?=\\S+$).{8,20}$";
+	String userNameRegex = "^[A-Za-z0-9+_.-]+@(.+)$";
 
-	// 1. LOGIN MODULE-----------------------------------------------------------------------------------
-	
+	// 1. LOGIN
+	// MODULE-----------------------------------------------------------------------------------
 
 	@Override
 	public List<UserDetails> allDetailsOfAdminAndUser() throws NoSuchUserExists {
@@ -80,21 +82,14 @@ public class SweetCherryServiceImpl implements SweetCherryService {
 		}
 	}
 
-	String str = "^(?=.*[0-9])" ;
-	String str1 = "(?=.*[a-z])(?=.*[A-Z])" ;
-	String str2 = "(?=.*[@#$%^&+=])" ;
-	String str3 ="(?=\\\\S+$).{8,20}$" ;
-	
 	@Override
-	@Transactional
+
 	public UserDetails registerCustomer(UserDetails registerCustomer)
 			throws UserNameAndPasswordDoNotMatchRegularExpression {
 
 		methodName = "registerCustomer(UserDetails registerCustomer)";
 		logger.info(methodName, DESCRIPTION);
 
-		String passwordRegex = str+ str1+ str2+ str3;
-		String userNameRegex = "^[A-Za-z0-9+_.-]+@(.+)$";
 		try {
 			if (registerCustomer != null) {
 				if (registerCustomer.getEmail().matches(userNameRegex)) {
@@ -110,14 +105,14 @@ public class SweetCherryServiceImpl implements SweetCherryService {
 			} else {
 				throw new NullPointerException("Null values passed");
 			}
-		} catch (Exception e) {
+		} catch (UserNameAndPasswordDoNotMatchRegularExpression e) {
 			throw new UserNameAndPasswordDoNotMatchRegularExpression(
 					"Please choose a more secure password. It should be longer than 6 characters, unique to you and difficult for others to guess.");
 		}
 	}
 
 	@Override
-	@Transactional
+   @Transactional
 	public String modifyPassword(int userId, String oldPassword, String newPassword)
 			throws UserNameAndPasswordDoNotMatchRegularExpression {
 		// A password is considered valid if all the following conditions are satisfied:
@@ -127,15 +122,14 @@ public class SweetCherryServiceImpl implements SweetCherryService {
 		// It contains at least one upper case alphabet.
 		// It contains at least one lower case alphabet.
 		// It contains at least one special character which includes special character
-		// !@#$%&*()-+=^.
+		// !@#$%&*()-+=^
 		// It doesn’t contain any blank space.
 
 		methodName = "modifyPassword(int userId, String oldPassword, String newPassword)";
 		logger.info(methodName, DESCRIPTION);
 
 		try {
-			if (newPassword
-					.matches(str+ str1 + str2+ str3)) {
+			if (newPassword.matches(passwordRegex)) {
 
 				userRepository.updatePassword(userId, oldPassword, newPassword);
 				return "Password changed successfully";
@@ -149,7 +143,7 @@ public class SweetCherryServiceImpl implements SweetCherryService {
 	}
 
 	@Override
-	@Transactional
+
 	public String login(String userName, String password) throws NoSuchUserExists {
 
 		methodName = "login(String userName, String password)";
@@ -157,15 +151,16 @@ public class SweetCherryServiceImpl implements SweetCherryService {
 
 		String result = null;
 		try {
-			if (verifyLoginCredential(userName, password)) {
+			if (verifyLoginCredential(userName, password)) { 
 				UserDetails det = userRepository.login(userName, password);
 				if (det != null && userName.equals(det.getEmail()) && password.equals(det.getPassword())) {
-						if (det.getRole().getRoleId() == 2) {
-							result = "login SuccessFul as User";
-						} else if (det.getRole().getRoleId() == 1) {
-							result = "login SuccessFul as Administrator";
-						}
-				}
+					if (det.getRole().getRoleId() == 2) {
+						result = "login SuccessFul as User";
+					} else if (det.getRole().getRoleId() == 1) {
+						result = "login SuccessFul as Administrator";
+					}
+				}else
+					throw new NoSuchUserExists("no user found");
 
 			} else {
 				throw new NoSuchUserExists("Invalid Entry");
@@ -186,17 +181,21 @@ public class SweetCherryServiceImpl implements SweetCherryService {
 	}
 
 	@Override
-	@Transactional
+	
 	public UserDetails allUserDetailsById(int userId) throws InvalidIdException {
 
 		methodName = "allUserDetailsById(int userId)";
 		logger.info(methodName, DESCRIPTION);
 
 		try {
-			Optional<UserDetails> user = userRepository.findById(userId);
-			if(user.isPresent() && user.get() != null) {
-				return user.get();
-			}
+			if (userId > 0) {
+				Optional<UserDetails> user = userRepository.findById(userId);
+				if (user.isPresent() && user.get() != null) {
+					return user.get();
+				}
+				
+			} else
+				throw new NoSuchElementException("invalid id");
 		} catch (NoSuchElementException e) {
 			throw new InvalidIdException("User with id " + userId + " not found, try another id.");
 		}
@@ -210,7 +209,6 @@ public class SweetCherryServiceImpl implements SweetCherryService {
 		methodName = "updateCustomerProfile(UserDetails customer)";
 		logger.info(methodName, DESCRIPTION);
 
-		String passwordRegex = str+ str1 + str2+ str3;
 		try {
 			if (customer.getPassword().matches(passwordRegex)) {
 				return userRepository.save(customer);
@@ -225,63 +223,56 @@ public class SweetCherryServiceImpl implements SweetCherryService {
 	}
 
 	public boolean verifyLoginCredential(String userName, String password) {
-     boolean flag= false ;
+		boolean flag = false;
 		methodName = "verifyLoginCredential(String userName, String password)";
 		logger.info(methodName, DESCRIPTION);
 
-		String passwordRegex = str+ str1 + str2+ str3;
-		String userNameRegex = "^[A-Za-z0-9+_.-]+@(.+)$";
+		if (userName.matches(userNameRegex) && password.matches(passwordRegex)) {
+			flag = true;
+		} else {
+			flag = false;
+		}
+		return flag;
 
-		if (userName.matches(userNameRegex) && password.matches(passwordRegex)) 
-			flag = true ;
-		
-		return flag; 
-		 
 	}
-	
-	
-	
-	
-	
-	// 2. CUPCAKE MODULE---------------------------------------------------------------------------------
 
-	
+	// 2. CUPCAKE
+	// MODULE---------------------------------------------------------------------------------
+
 	@Override
-	@Transactional
+
 	public CupcakeDetails addCupcakeDetails(CupcakeDetails cupcakedetails) throws NoSuchCupcakeExists {
-		
+
 		methodName = "addCupcakeDetails(CupcakeDetails cupcakedetails)";
 		logger.info(methodName, DESCRIPTION);
-		
+
 		try {
-			
-			  String regex = "^[a-zA-Z\\s]+"; 
-			  if (cupcakedetails.getCupcakeName().matches(regex)) {
-				 return cupcakeRepository.save(cupcakedetails);
-			  }
-			  else {
-				 throw new NoSuchElementException("Cupcake name regular expression is not matched");
-			  }
-		} 
-		catch (Exception e) {
-			throw new NoSuchCupcakeExists("The Cupcake Details you have entered is invalid! Please enter valid Cupcake Details");
+
+			String regex = "^[a-zA-Z\\s]+";
+			if (cupcakedetails.getCupcakeName().matches(regex)) {
+				return cupcakeRepository.save(cupcakedetails);
+			} else {
+				throw new NoSuchElementException("Cupcake name regular expression is not matched");
+			}
+		} catch (Exception e) {
+			throw new NoSuchCupcakeExists(
+					"The Cupcake Details you have entered is invalid! Please enter valid Cupcake Details");
 		}
 
 	}
-	 
+
 	@Override
 	public List<CupcakeDetails> showCupcakeDetails() throws NoSuchCupcakeExists {
-		
+
 		methodName = "showCupcakeDetails()";
-		logger.info(methodName, DESCRIPTION);		
+		logger.info(methodName, DESCRIPTION);
 		try {
 			List<CupcakeDetails> cupcakeList = cupcakeRepository.findAll();
 			if (!cupcakeList.isEmpty())
 				return cupcakeList;
 			else
 				throw new NullPointerException("Cupcakes Not Found!");
-		} 
-		catch (NullPointerException e) {
+		} catch (NullPointerException e) {
 			throw new NoSuchCupcakeExists("No cupcakes avialable to show");
 		}
 
@@ -298,55 +289,48 @@ public class SweetCherryServiceImpl implements SweetCherryService {
 					return cupcakeDetails.get();
 				else
 					throw new NoSuchElementException("No Cupcakes Found");
-			} 
-			else
+			} else
 				throw new NullPointerException("You have entered a negative Cupcake Id");
 
-		} 
-		catch (Exception ne) {
+		} catch (Exception ne) {
 			throw new NoSuchCupcakeExists("Cupcake Details with cupcake id = " + cupcakeId + " not found");
 		}
 	}
 
-	
 	@Override
-	@Transactional
+	//@Transactional
 	public CupcakeDetails modifyCupcakeRating(int cupcakeId, int rating) throws NoSuchCupcakeExists {
 		methodName = "modifyCupcakeRating(CupcakeDetails cupcakeDetails)";
 		logger.info(methodName, DESCRIPTION);
 		try {
 			if (rating > 0 && rating <= 6) {
 				cupcakeRepository.updateRating(cupcakeId, rating);
-				return  findCupcakeDetailsById(cupcakeId);
-			} 
-			else
+				return findCupcakeDetailsById(cupcakeId);
+			} else
 				throw new NoSuchElementException("Rating should be between 1 to 5");
-		} 
-		catch (NoSuchElementException e) {
+		} catch (NoSuchElementException e) {
 			throw new NoSuchCupcakeExists("Cupcake details you have entered is invalid!\n Please enter valid details.");
 		}
 
 	}
 
 	@Override
-	@Transactional
+	//@Transactional
 	public Orders addCupcakeToCart(Orders order) throws NoSuchOrderExists {
 		methodName = "addCupcakeToCart(Orders order) ";
 		logger.info(methodName, DESCRIPTION);
 		try {
 			if (order.getQuantity() <= 10 && order.getOrderStatus().equalsIgnoreCase("Pending")) {
-				return  orderRepository.save(order);
-			} 
-			else
+				return orderRepository.save(order);
+			} else
 				throw new NoSuchElementException("Maximum Order quantity is 10");
-		} 
-		catch (NoSuchElementException e) {
+		} catch (NoSuchElementException e) {
 			throw new NoSuchOrderExists("The Order details you have entered is invalid ! Please enter valid details.");
 		}
 	}
 
 	@Override
-	@Transactional
+	//@Transactional
 	public Payment addPaymentDetails(Payment payment) throws NoSuchOrderExists {
 		methodName = "addPaymentDetails(Payment payment)";
 		logger.info(methodName, DESCRIPTION);
@@ -357,28 +341,25 @@ public class SweetCherryServiceImpl implements SweetCherryService {
 					return paymentObject;
 				else
 					throw new NoSuchElementException("Invalid details");
-			} 
-			else
+			} else
 				throw new NoSuchElementException("Please update the status as 'Successful'");
-		} 
-		catch (NoSuchElementException e) {
+		} catch (NoSuchElementException e) {
 			throw new NoSuchOrderExists(
 					"The payment details you have entered is incorrect! Please enter valid payment details");
 		}
 	}
 
 	@Override
-	@Transactional
+	//@Transactional
 	public CupcakeDetails updateCupcakePriceByCupcakeId(int cupcakeId, double price) throws NoSuchCupcakeExists {
 
 		methodName = "modifyCupcakePrice(CupcakeDetails cupcakedetails)";
-		logger.info(methodName, DESCRIPTION);		
+		logger.info(methodName, DESCRIPTION);
 		try {
 			if (cupcakeId > 1) {
 				cupcakeRepository.updatePrice(cupcakeId, price);
 				return findCupcakeDetailsById(cupcakeId);
-			} 
-			else
+			} else
 				throw new NoSuchElementException("Cupcake Id can't be negative");
 		}
 
@@ -388,117 +369,106 @@ public class SweetCherryServiceImpl implements SweetCherryService {
 
 	}
 
-	
 	@Override
-	@Transactional
+	//@Transactional
 	public CupcakeDetails modifyCupcakeName(int cupcakeId, String cupcakeName) throws NoSuchCupcakeExists {
-		
+
 		methodName = "modifyCupcakeName(int cupcakeId,String cupcakeName)";
-		logger.info(methodName, DESCRIPTION);		
+		logger.info(methodName, DESCRIPTION);
 		try {
-			if (cupcakeId > 1) {
+			if (cupcakeId > 0) {
 				cupcakeRepository.updateCupcakeName(cupcakeId, cupcakeName);
 				return findCupcakeDetailsById(cupcakeId);
 			}
 
 			else
 				throw new NoSuchElementException("Cupcake Id can't be negative");
-		}
-		catch (NoSuchElementException e) {
+		} catch (NoSuchElementException e) {
 			throw new NoSuchCupcakeExists("Cupcake Name is not modified.");
 		}
 
 	}
 
 	@Override
-	@Transactional
+	//@Transactional
 	public String removeCupcakeDetails(int cupcakeId) throws NoSuchCupcakeExists {
 		methodName = "removeCupcakeDetails(int cupcakId)";
 		logger.info(methodName, DESCRIPTION);
 		try {
-			if (cupcakeId > 1) {
+			if (cupcakeId > 0) {
 				cupcakeRepository.deleteById(cupcakeId);
 				return "Cupcake Removed";
-			} 
-			else
+			} else
 				throw new NoSuchElementException("Cupcake id can't be negative or zero.");
-		} 
-		catch (NoSuchElementException e) {
+		} catch (NoSuchElementException e) {
 			throw new NoSuchCupcakeExists("Cupcake with id" + cupcakeId + " is not found.");
 
 		}
 	}
-	
-	
+
 	@Override
-	@Transactional
+	//@Transactional
 	public CupcakeCategory addCupcakeCategory(CupcakeCategory cupcakeCategory) {
-		
+
 		return cupcakeCategoryRepository.save(cupcakeCategory);
 	}
-	
-	
-	
-
 
 	// ORDER
 	// MODULE--------------------------------------------------------------------------------------------------
 
 	@Override
-	@Transactional 
+	//@Transactional
 	public Payment makeOnlinePayment(Payment payment) throws PaymentFailedException {
 		Payment result = null;
 		methodName = "makeOnlinePayment(Payment payment)";
-		logger.info(methodName , DESCRIPTION);
+		logger.info(methodName, DESCRIPTION);
 		try {
-			if (isValidPaymentDetails(payment)) {
+			if (payment != null && isValidPaymentDetails(payment)) {
 				Payment paymentObject = paymentRepository.save(payment);
 				result = paymentObject;
 
 			} else
-				throw new NoSuchElementException("Error");
+				throw new NullPointerException("Error");
 			return result;
 
-		} catch (NoSuchElementException e) {
+		} catch (NullPointerException e) {
 			throw new PaymentFailedException("Error in making Payment...please enter valid details!");
 		}
 
 	}
 
 	@Override
-	@Transactional
+	//@Transactional
 	public Orders makeOnlineOrder(int orderId) throws NoSuchOrderExists {
 		try {
 			methodName = "makeOnlineOrder(int orderId)";
 			logger.info(methodName, DESCRIPTION);
-			Optional<Orders> orders = orderRepository.findById(orderId);
-			if (!orders.isEmpty() && orders.get().getOrderStatus().equalsIgnoreCase("pending")) {
-				orders.get().setOrderStatus("Ordered");
-				String orderDetails = "Order Id: " + orders.get().getOrderId() + "\n" +
-									 "Order Date: "	+orders.get().getOrderDate() + "\n" +
-									 "Order status: "+ orders.get().getOrderStatus() + "\n" +
-									 "Total Price:"	+ orders.get().getTotalPrice() + "\n" + 
-									 "Cupcake Name:" + orders.get().getCupcakeDetails();
-				mailService.senMail(orders.get().getUserDetails().getEmail(), "Order Confirmed", orderDetails);
-				logger.info("Mail Sent");
-				return orderRepository.save(orders.get());
-			}
+			if (orderId > 0) {
+				Optional<Orders> orders = orderRepository.findById(orderId);
+				if (!orders.isEmpty() && orders.get().getOrderStatus().equalsIgnoreCase("pending")) {
+					orders.get().setOrderStatus("Ordered");
+					String orderDetails = "Order Id: " + orders.get().getOrderId() + "\n" + "Order Date: "
+							+ orders.get().getOrderDate() + "\n" + "Order status: " + orders.get().getOrderStatus()
+							+ "\n" + "Total Price:" + orders.get().getTotalPrice() + "\n" + "Cupcake Name:"
+							+ orders.get().getCupcakeDetails();
+					mailService.senMail(orders.get().getUserDetails().getEmail(), "Order Confirmed", orderDetails);
+					logger.info("Mail Sent");
+					return orderRepository.save(orders.get());
+				}
+			} else
+				throw new NoSuchElementException("no element found");
 
 		} catch (NoSuchElementException e) {
 			throw new NoSuchOrderExists("The Order details you have entered is invalid ! Please enter valid details.");
 		}
 		return null;
 	}
-		
-	
-
-	
 
 	@Override
 	public Orders cancelOnlineOrder(int orderId) throws NoSuchOrderExists {
 		try {
 			methodName = "cancelOnlineOrder(int orderId)";
-			logger.info(methodName , DESCRIPTION);
+			logger.info(methodName, DESCRIPTION);
 
 			Optional<Orders> orders = orderRepository.findById(orderId);
 			if (orders.isPresent() && orders.get().getOrderStatus().equalsIgnoreCase("ordered")) {
@@ -516,7 +486,7 @@ public class SweetCherryServiceImpl implements SweetCherryService {
 	public List<Orders> showOrderDetailsByUserId(int userId) throws NoSuchOrderExists {
 		try {
 			methodName = "showOrderDetailsByUserId(int userId)";
-			logger.info(methodName , DESCRIPTION);
+			logger.info(methodName, DESCRIPTION);
 
 			List<Orders> orderDetails = orderRepository.findByuserId(userId);
 			if (!orderDetails.isEmpty()) {
@@ -527,19 +497,19 @@ public class SweetCherryServiceImpl implements SweetCherryService {
 				throw new NoSuchElementException("empty OrderList");
 
 		} catch (NoSuchElementException e) {
-			
+
 			throw new NoSuchOrderExists("There is no order present with userId " + userId);
 		}
 
 	}
 
 	@Override
-	@Transactional
+	//@Transactional
 	public UserDetails modifyDeliveryAddress(UserDetails userDetails) throws NoSuchUserExists {
 		UserDetails result = null;
 		try {
 			methodName = "modifyDeliveryAddress(UserDetails userDetails)";
-			logger.info(methodName , DESCRIPTION);
+			logger.info(methodName, DESCRIPTION);
 			if (isValidAddressDetails(userDetails)) {
 				UserDetails userDetail = userRepository.save(userDetails);
 				result = userDetail;
@@ -552,12 +522,12 @@ public class SweetCherryServiceImpl implements SweetCherryService {
 	}
 
 	@Override
-	@Transactional
+	//@Transactional
 	public UserDetails addDeliveryAddress(UserDetails userDetails) throws NoSuchUserExists {
 		UserDetails result = null;
 		try {
 			methodName = "addDeliveryAddress(UserDetails userDetails)";
-			logger.info(methodName , DESCRIPTION);
+			logger.info(methodName, DESCRIPTION);
 			if (isValidAddressDetails(userDetails)) {
 				UserDetails userDetail = userRepository.save(userDetails);
 				result = userDetail;
@@ -571,11 +541,11 @@ public class SweetCherryServiceImpl implements SweetCherryService {
 	}
 
 	@Override
-	@Transactional
+	//@Transactional
 	public boolean deleteDeliveryAddress(int addressId) throws NoSuchAddressExists {
 		try {
 			methodName = "deleteDeliveryAddress(int addressId)";
-			logger.info(methodName , DESCRIPTION);
+			logger.info(methodName, DESCRIPTION);
 			Optional<Address> address = addressrepository.findById(addressId);
 			if (address.isPresent()) {
 				addressrepository.delete(address.get());
@@ -591,17 +561,17 @@ public class SweetCherryServiceImpl implements SweetCherryService {
 
 	@Override
 	public List<Orders> getAllOrderDetails() throws NoSuchOrderExists {
-		
-		try {
-		methodName = "getAllOrderDetails()";
-		logger.info(methodName , DESCRIPTION);
 
-		List<Orders> orderDetails = orderRepository.findAll();
-		if (!orderDetails.isEmpty()) {
-			return orderDetails;
-		} else
-			throw new NullPointerException("null value present");
-		}catch(NullPointerException e) {
+		try {
+			methodName = "getAllOrderDetails()";
+			logger.info(methodName, DESCRIPTION);
+
+			List<Orders> orderDetails = orderRepository.findAll();
+			if (!orderDetails.isEmpty()) {
+				return orderDetails;
+			} else
+				throw new NullPointerException("null value present");
+		} catch (NullPointerException e) {
 			throw new NoSuchOrderExists("there is no any order details available");
 		}
 	}
@@ -610,17 +580,16 @@ public class SweetCherryServiceImpl implements SweetCherryService {
 	public Address getDeliveryAddress(int addressId) throws NoSuchAddressExists {
 		try {
 			methodName = "getDeliveryAddress(int addressId)";
-			logger.info(methodName , DESCRIPTION);
+			logger.info(methodName, DESCRIPTION);
 
 			Optional<Address> address = addressrepository.findById(addressId);
 			if (address.isPresent()) {
 				return address.get();
-			}else 
+			} else
 				throw new NullPointerException("null value present");
 		} catch (NullPointerException e) {
 			throw new NoSuchAddressExists("Address with address id " + addressId + " does not exist");
 		}
-		
 
 	}
 
@@ -628,7 +597,7 @@ public class SweetCherryServiceImpl implements SweetCherryService {
 	public Orders getOrderDetailsById(int orderId) throws NoSuchOrderExists {
 		try {
 			methodName = "getOrderDetailsById(int orderId)";
-			logger.info(methodName , DESCRIPTION);
+			logger.info(methodName, DESCRIPTION);
 
 			Optional<Orders> orderDetails = orderRepository.findById(orderId);
 			if (orderDetails.isPresent())
@@ -638,17 +607,17 @@ public class SweetCherryServiceImpl implements SweetCherryService {
 		} catch (NullPointerException e) {
 			throw new NoSuchOrderExists("There is no any order- details available with orderId " + orderId);
 		}
-		
+
 	}
 
 	public boolean isValidPaymentDetails(Payment payment) {
 
 		methodName = "isValidPaymentDetails(Payment payment)";
-		logger.info(methodName , DESCRIPTION);
+		logger.info(methodName, DESCRIPTION);
 
 		String stringRegex = "[A-Za-z]+";
 
-		if (payment.getCardHolderName().matches(stringRegex)) {
+		if(payment.getCardHolderName().matches(stringRegex)) {
 			return true;
 		} else
 			return false;
@@ -656,7 +625,7 @@ public class SweetCherryServiceImpl implements SweetCherryService {
 
 	public boolean isValidAddressDetails(UserDetails userDetails) {
 		methodName = "isValidAddressDetails(UserDetails userDetails)";
-		logger.info(methodName , DESCRIPTION);
+		logger.info(methodName, DESCRIPTION);
 
 		String stringRegex = "[A-Za-z]+";
 		String pincodeRegex = "[0-9]+";
@@ -670,10 +639,7 @@ public class SweetCherryServiceImpl implements SweetCherryService {
 				result = false;
 		}
 		return result;
-	
-	}
-	
-	
 
+	}
 
 }
